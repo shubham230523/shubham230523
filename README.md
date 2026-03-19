@@ -1,5 +1,5 @@
 Hi there, I'm Shubham Thorat! 👋
-Software Engineer | CodeForces Expert | Mobile Systems Architect
+Software Engineer | CodeForces Expert
 
 I am a Software Engineer with 3 years of experience specializing in high-performance mobile application development. My work focuses on building scalable, resilient systems, most notably contributing to 10+ official NBA/WNBA applications that serve millions of global users. I am deeply passionate about competitive programming and architectural excellence.
 
@@ -18,13 +18,14 @@ Tools & Infrastructure: AI-assisted Development, CI/CD, AWS, Firebase, SDLC Auto
 
 
 🏆 Competitive Programming & Achievements
+
 I enjoy solving complex algorithmic challenges and optimizing for performance
 
-  .CodeForces: Expert (Peak Rating: 1669)
+CodeForces: Expert (Peak Rating: 1669)
   
-  .LeetCode: 900+ Problems Solved (Top 18% globally)
+LeetCode: 900+ Problems Solved (Top 18% globally)
   
-  .Problem Solving: Total of 1,300+ problems solved across major platforms.
+Problem Solving: Total of 1,300+ problems solved across major platforms.
 
 
 📜 Recent Certifications (Mar 2026)
@@ -36,3 +37,7 @@ Multi-Modular KMP: Ecommerce App for Android & iOS.
 Ultimate Compose Multiplatform: Android/iOS + Testing.
 
 iOS & Swift: The Complete iOS App Development Bootcamp.
+
+
+🤝 Connect with Me
+https://www.linkedin.com/in/shubham-thorat-9489671b2/
