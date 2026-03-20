@@ -1,32 +1,75 @@
-Hi there, I'm Shubham Thorat! 👋
-Software Engineer
+# 👋 Hi there, I'm Shubham Thorat
 
-I am a Software Engineer with 3 years of experience specializing in high-performance mobile application development. My work focuses on building scalable, resilient systems, most notably contributing to 10+ official NBA/WNBA applications that serve millions of global users. I am deeply passionate about competitive programming and architectural excellence.
+## 💻 Software Engineer
 
+I am a **Software Engineer with 3 years of experience** specializing in high-performance mobile application development.  
+My work focuses on building **scalable and resilient systems**, with notable contributions to **10+ official NBA/WNBA applications** serving millions of global users.
 
-🚀 Technical Arsenal
+I am deeply passionate about:
+- 🧠 Competitive Programming  
+- 🏗️ System Design & Architecture  
+- 📱 Mobile Engineering Excellence  
 
-Languages: Kotlin (Expert), Java, Swift, SQL (Room/SQLite), TypeScript.
+---
 
-Mobile Ecosystem: Android SDK, Jetpack Compose, Android Framework Internals, Multi-threading.
+## 🚀 Technical Arsenal
 
-Cross-Platform: Flutter, KMP (Kotlin Multiplatform), CMM, React Native, iOS.
+### 💻 Languages
+- Kotlin (Expert)  
+- Java  
+- Swift  
+- SQL (Room / SQLite)  
+- TypeScript  
 
-Architecture: MVI, MVVM, Clean Architecture, System Design (LLD/HLD).
+---
 
-Tools & Infrastructure: AI-assisted Development, CI/CD, AWS, Firebase, SDLC Automation.
+### 📱 Mobile Ecosystem
+- Android SDK  
+- Jetpack Compose  
+- Android Framework Internals  
+- Multi-threading & Concurrency  
 
+---
 
-📜 Recent Certifications (Mar 2026)
+### 🌍 Cross-Platform Development
+- Flutter  
+- Kotlin Multiplatform (KMP)  
+- CMM  
+- React Native  
+- iOS Development  
 
-AI Coder: Vibe Coder to Agentic Engineer.
+---
 
-Multi-Modular KMP: Ecommerce App for Android & iOS.
+### 🏗️ Architecture & Design
+- MVI (Model-View-Intent)  
+- MVVM (Model-View-ViewModel)  
+- Clean Architecture  
+- System Design (LLD & HLD)  
 
-Ultimate Compose Multiplatform: Android/iOS + Testing.
+---
 
-iOS & Swift: The Complete iOS App Development Bootcamp.
+### ⚙️ Tools & Infrastructure
+- AI-assisted Development  
+- CI/CD Pipelines  
+- AWS  
+- Firebase  
+- SDLC Automation  
 
+---
 
-🤝 Connect with Me
-https://www.linkedin.com/in/shubham-thorat-9489671b2/
+## 📜 Recent Certifications (Mar 2026)
+
+- 🤖 AI Coder: Vibe Coder to Agentic Engineer  
+- 📱 Multi-Modular KMP: E-commerce App for Android & iOS  
+- 🎨 Ultimate Compose Multiplatform: Android/iOS + Testing  
+- 🍎 iOS & Swift: The Complete iOS App Development Bootcamp  
+
+---
+
+## 🤝 Connect with Me
+
+- 🔗 LinkedIn: [Shubham Thorat](https://www.linkedin.com/in/shubham-thorat-9489671b2/)
+
+---
+
+> 💡 Passionate about building scalable systems, crafting clean architecture, and delivering impactful mobile experiences.
