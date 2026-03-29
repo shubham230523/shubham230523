@@ -1,4 +1,4 @@
-# 👋 Hi there, I'm Shubham Thorat
+# 👋 Hi there, I'm Shubham
 
 ## 💻 Software Engineer
 
@@ -63,12 +63,6 @@ I am deeply passionate about:
 - 📱 Multi-Modular KMP: E-commerce App for Android & iOS  
 - 🎨 Ultimate Compose Multiplatform: Android/iOS + Testing  
 - 🍎 iOS & Swift: The Complete iOS App Development Bootcamp  
-
----
-
-## 🤝 Connect with Me
-
-- 🔗 LinkedIn: [Shubham Thorat](https://www.linkedin.com/in/shubham-thorat-9489671b2/)
 
 ---
 
