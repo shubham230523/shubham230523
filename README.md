@@ -3,7 +3,6 @@
 ## 💻 Software Engineer
 
 I am a **Software Engineer with 3 years of experience** specializing in high-performance mobile application development.  
-My work focuses on building **scalable and resilient systems**, with notable contributions to **10+ official NBA/WNBA applications** serving millions of global users.
 
 I am deeply passionate about:
 - 🧠 Competitive Programming  
