@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shubham | Software Engineer | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --accent-primary: #38bdf8;
+            --accent-secondary: #818cf8;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #e2e8f0;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .glass {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .project-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-primary);
+            box-shadow: 0 10px 30px -10px rgba(56, 189, 248, 0.3);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--accent-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .tech-badge {
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--accent-primary);
+        }
+
+        /* Animation for background dots */
+        .bg-dots {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .blob {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(129, 140, 248, 0.1));
+            filter: blur(60px);
+            border-radius: 50%;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body class="bg-dots overflow-x-hidden">
+    <div class="blob top-0 left-0"></div>
+    <div class="blob bottom-0 right-0"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold gradient-text mono">&lt;Shubham /&gt;</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link hover:text-white transition">Home</a>
+                    <a href="#about" class="nav-link hover:text-white transition">About</a>
+                    <a href="#skills" class="nav-link hover:text-white transition">Skills</a>
+                    <a href="#projects" class="nav-link hover:text-white transition">Projects</a>
+                    <a href="https://github.com/shubham230523" target="_blank" class="nav-link hover:text-white transition"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <div class="inline-block px-4 py-1 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 text-sm mb-6 animate-pulse">
+                Available for high-performance engineering
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight">
+                Software Engineer with <span class="gradient-text">3 Years</span> of Mobile Excellence
+            </h1>
+            <div class="mb-10 mx-auto max-w-2xl glass rounded-lg overflow-hidden border border-slate-700 shadow-2xl text-left mono text-sm">
+                <div class="bg-slate-800 px-4 py-2 flex gap-2 border-b border-slate-700">
+                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                    <span class="ml-2 text-gray-500">shubham@dev: ~</span>
+                </div>
+                <div class="p-6 space-y-2">
+                    <p class="text-blue-400">$ <span class="text-white">whoami</span></p>
+                    <p class="text-gray-400">Shubham. A seeker of high-performance engineering & scalable systems.</p>
+                    <p class="text-blue-400">$ <span class="text-white">skills --expert</span></p>
+                    <p class="text-gray-400">["Kotlin", "Jetpack Compose", "KMP", "System Design"]</p>
+                    <p class="text-blue-400">$ <span class="text-white">passion --current</span></p>
+                    <p class="text-gray-400">"Building AI-assisted mobile workflows & Agentic Engineering"</p>
+                    <p class="text-blue-400">$ <span class="animate-pulse">_</span></p>
+                </div>
+            </div>
+            <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+                Focused on Kotlin Multiplatform and AI, turning complex ideas into high-performance mobile experiences.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#projects" class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-all shadow-lg shadow-blue-900/20">
+                    View Projects
+                </a>
+                <a href="https://github.com/shubham230523" target="_blank" class="px-8 py-3 glass hover:bg-slate-800 text-white rounded-lg font-semibold transition-all">
+                    GitHub Profile
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-slate-900/30">
+        <div class="max-w-5xl mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 flex items-center gap-4">
+                <span class="text-blue-500 mono">01.</span> About Me
+            </h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 text-gray-300">
+                    <p>
+                        Hello! I'm Shubham, a Software Engineer deeply passionate about competitive programming and system design. My journey revolves around crafting high-performance mobile applications and delivering impactful user experiences.
+                    </p>
+                    <p>
+                        Recently, I've been focusing on <span class="text-blue-400">Agentic Engineering</span> and integrating AI into the development workflow, pushing the boundaries of how we build software today.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="p-4 glass rounded-xl">
+                            <h3 class="font-bold text-white mb-1">Certifications</h3>
+                            <p class="text-sm">AI Coder: Vibe to Agentic Engineer (Mar 2026)</p>
+                        </div>
+                        <div class="p-4 glass rounded-xl">
+                            <h3 class="font-bold text-white mb-1">Focus</h3>
+                            <p class="text-sm">KMP & Jetpack Compose</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-2xl blur opacity-25 group-hover:opacity-50 transition"></div>
+                    <div class="relative p-8 glass rounded-2xl">
+                        <div class="flex flex-col gap-4">
+                            <div class="flex justify-between items-center">
+                                <span class="mono text-blue-400">Experience</span>
+                                <span class="font-bold">3+ Years</span>
+                            </div>
+                            <div class="w-full bg-slate-800 rounded-full h-2">
+                                <div class="bg-blue-500 h-2 rounded-full w-full"></div>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="mono text-purple-400">Kotlin</span>
+                                <span class="font-bold">Expert</span>
+                            </div>
+                            <div class="w-full bg-slate-800 rounded-full h-2">
+                                <div class="bg-purple-500 h-2 rounded-full w-[95%]"></div>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="mono text-indigo-400">Architecture</span>
+                                <span class="font-bold">Lead</span>
+                            </div>
+                            <div class="w-full bg-slate-800 rounded-full h-2">
+                                <div class="bg-indigo-500 h-2 rounded-full w-[90%]"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24">
+        <div class="max-w-5xl mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 flex items-center gap-4">
+                <span class="text-blue-500 mono">02.</span> Technical Arsenal
+            </h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Mobile -->
+                <div class="p-6 glass rounded-2xl border-l-4 border-blue-500">
+                    <i class="fas fa-mobile-alt text-2xl mb-4 text-blue-500"></i>
+                    <h3 class="font-bold mb-3">Mobile Ecosystem</h3>
+                    <ul class="text-sm text-gray-400 space-y-2">
+                        <li>Android SDK</li>
+                        <li>Jetpack Compose</li>
+                        <li>Swift & iOS</li>
+                        <li>Flutter</li>
+                    </ul>
+                </div>
+                <!-- Languages -->
+                <div class="p-6 glass rounded-2xl border-l-4 border-purple-500">
+                    <i class="fas fa-code text-2xl mb-4 text-purple-500"></i>
+                    <h3 class="font-bold mb-3">Languages</h3>
+                    <ul class="text-sm text-gray-400 space-y-2">
+                        <li>Kotlin (Expert)</li>
+                        <li>Java</li>
+                        <li>Swift</li>
+                        <li>TypeScript</li>
+                    </ul>
+                </div>
+                <!-- Architecture -->
+                <div class="p-6 glass rounded-2xl border-l-4 border-indigo-500">
+                    <i class="fas fa-layer-group text-2xl mb-4 text-indigo-500"></i>
+                    <h3 class="font-bold mb-3">Architecture</h3>
+                    <ul class="text-sm text-gray-400 space-y-2">
+                        <li>MVI / MVVM</li>
+                        <li>Clean Architecture</li>
+                        <li>System Design</li>
+                        <li>LLD / HLD</li>
+                    </ul>
+                </div>
+                <!-- Infrastructure -->
+                <div class="p-6 glass rounded-2xl border-l-4 border-green-500">
+                    <i class="fas fa-server text-2xl mb-4 text-green-500"></i>
+                    <h3 class="font-bold mb-3">Infra & AI</h3>
+                    <ul class="text-sm text-gray-400 space-y-2">
+                        <li>AWS & Firebase</li>
+                        <li>Agentic AI</li>
+                        <li>CI/CD</li>
+                        <li>SDLC Automation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 bg-slate-900/30">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 flex items-center gap-4 text-center justify-center">
+                <span class="text-blue-500 mono">03.</span> Featured Projects
+            </h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- RAGentrix -->
+                <div class="project-card glass rounded-2xl overflow-hidden flex flex-col">
+                    <div class="p-6 flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <i class="fas fa-robot text-3xl text-blue-500"></i>
+                            <a href="https://github.com/shubham230523/RAGentrix" target="_blank" class="text-gray-400 hover:text-white transition text-xl"><i class="fab fa-github"></i></a>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">RAGentrix</h3>
+                        <p class="text-gray-400 text-sm mb-4">Advanced RAG (Retrieval-Augmented Generation) AI agent system for intelligent data retrieval and processing.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tech-badge">AI</span>
+                            <span class="tech-badge">LLM</span>
+                            <span class="tech-badge">Python</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PhonePilotAI -->
+                <div class="project-card glass rounded-2xl overflow-hidden flex flex-col">
+                    <div class="p-6 flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <i class="fas fa-brain text-3xl text-purple-500"></i>
+                            <a href="https://github.com/shubham230523/PhonePilotAI" target="_blank" class="text-gray-400 hover:text-white transition text-xl"><i class="fab fa-github"></i></a>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">PhonePilotAI</h3>
+                        <p class="text-gray-400 text-sm mb-4">AI assistant designed to automate and enhance mobile phone interactions and user workflows.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tech-badge">Android</span>
+                            <span class="tech-badge">AI</span>
+                            <span class="tech-badge">Automation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TravelSphereKmp -->
+                <div class="project-card glass rounded-2xl overflow-hidden flex flex-col">
+                    <div class="p-6 flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <i class="fas fa-globe-americas text-3xl text-indigo-500"></i>
+                            <a href="https://github.com/shubham230523/TravelSphereKmp" target="_blank" class="text-gray-400 hover:text-white transition text-xl"><i class="fab fa-github"></i></a>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">TravelSphere KMP</h3>
+                        <p class="text-gray-400 text-sm mb-4">Kotlin Multiplatform travel application for seamless experiences across Android and iOS.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tech-badge">KMP</span>
+                            <span class="tech-badge">Compose Multiplatform</span>
+                            <span class="tech-badge">MVI</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TraceFlow -->
+                <div class="project-card glass rounded-2xl overflow-hidden flex flex-col">
+                    <div class="p-6 flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <i class="fas fa-project-diagram text-3xl text-green-500"></i>
+                            <a href="https://github.com/shubham230523/TraceFlow" target="_blank" class="text-gray-400 hover:text-white transition text-xl"><i class="fab fa-github"></i></a>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">TraceFlow</h3>
+                        <p class="text-gray-400 text-sm mb-4">High-performance networking and tracing tool for monitoring application flow and data.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tech-badge">Kotlin</span>
+                            <span class="tech-badge">Networking</span>
+                            <span class="tech-badge">Observability</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CineNexusAndroidTV -->
+                <div class="project-card glass rounded-2xl overflow-hidden flex flex-col">
+                    <div class="p-6 flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <i class="fas fa-tv text-3xl text-red-500"></i>
+                            <a href="https://github.com/shubham230523/CineNexusAndroidTV" target="_blank" class="text-gray-400 hover:text-white transition text-xl"><i class="fab fa-github"></i></a>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">CineNexus TV</h3>
+                        <p class="text-gray-400 text-sm mb-4">Optimized media consumption application built specifically for the Android TV ecosystem.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tech-badge">Android TV</span>
+                            <span class="tech-badge">Leanback</span>
+                            <span class="tech-badge">ExoPlayer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Investo -->
+                <div class="project-card glass rounded-2xl overflow-hidden flex flex-col">
+                    <div class="p-6 flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <i class="fas fa-chart-line text-3xl text-emerald-500"></i>
+                            <a href="https://github.com/shubham230523/Investo" target="_blank" class="text-gray-400 hover:text-white transition text-xl"><i class="fab fa-github"></i></a>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Investo</h3>
+                        <p class="text-gray-400 text-sm mb-4">Fintech application for investment tracking and financial management with sleek UI.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tech-badge">Fintech</span>
+                            <span class="tech-badge">Jetpack Compose</span>
+                            <span class="tech-badge">Room</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KrossShield -->
+                <div class="project-card glass rounded-2xl overflow-hidden flex flex-col">
+                    <div class="p-6 flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <i class="fas fa-shield-alt text-3xl text-yellow-500"></i>
+                            <a href="https://github.com/shubham230523/KrossShield" target="_blank" class="text-gray-400 hover:text-white transition text-xl"><i class="fab fa-github"></i></a>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">KrossShield</h3>
+                        <p class="text-gray-400 text-sm mb-4">Security-focused utility for privacy protection and secure data handling in mobile apps.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tech-badge">Security</span>
+                            <span class="tech-badge">Encryption</span>
+                            <span class="tech-badge">Kotlin</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HealthBridgeAPI -->
+                <div class="project-card glass rounded-2xl overflow-hidden flex flex-col">
+                    <div class="p-6 flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <i class="fas fa-heartbeat text-3xl text-pink-500"></i>
+                            <a href="https://github.com/shubham230523/HealthBridgeAPI" target="_blank" class="text-gray-400 hover:text-white transition text-xl"><i class="fab fa-github"></i></a>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">HealthBridge API</h3>
+                        <p class="text-gray-400 text-sm mb-4">Robust API for medical data synchronization and healthcare service integration.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tech-badge">HealthTech</span>
+                            <span class="tech-badge">Ktor</span>
+                            <span class="tech-badge">Backend</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shopora -->
+                <div class="project-card glass rounded-2xl overflow-hidden flex flex-col">
+                    <div class="p-6 flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <i class="fas fa-shopping-bag text-3xl text-orange-500"></i>
+                            <a href="https://github.com/shubham230523/Shopora" target="_blank" class="text-gray-400 hover:text-white transition text-xl"><i class="fab fa-github"></i></a>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Shopora</h3>
+                        <p class="text-gray-400 text-sm mb-4">Full-featured E-commerce application with modern shopping experiences and checkout flows.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tech-badge">E-commerce</span>
+                            <span class="tech-badge">Material 3</span>
+                            <span class="tech-badge">Firebase</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KtorMQTTX -->
+                <div class="project-card glass rounded-2xl overflow-hidden flex flex-col">
+                    <div class="p-6 flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <i class="fas fa-exchange-alt text-3xl text-cyan-500"></i>
+                            <a href="https://github.com/shubham230523/KtorMQTTX" target="_blank" class="text-gray-400 hover:text-white transition text-xl"><i class="fab fa-github"></i></a>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">KtorMQTTX</h3>
+                        <p class="text-gray-400 text-sm mb-4">MQTT integration for Ktor, enabling real-time IoT communication and messaging.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tech-badge">Ktor</span>
+                            <span class="tech-badge">MQTT</span>
+                            <span class="tech-badge">IoT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TestPilotAI -->
+                <div class="project-card glass rounded-2xl overflow-hidden flex flex-col">
+                    <div class="p-6 flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <i class="fas fa-flask text-3xl text-amber-500"></i>
+                            <a href="https://github.com/shubham230523/TestPilotAI" target="_blank" class="text-gray-400 hover:text-white transition text-xl"><i class="fab fa-github"></i></a>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">TestPilotAI</h3>
+                        <p class="text-gray-400 text-sm mb-4">AI-driven testing framework for automated UI and integration testing of mobile apps.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tech-badge">Testing</span>
+                            <span class="tech-badge">AI</span>
+                            <span class="tech-badge">Automation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GolobeTripora -->
+                <div class="project-card glass rounded-2xl overflow-hidden flex flex-col">
+                    <div class="p-6 flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <i class="fas fa-plane-departure text-3xl text-sky-500"></i>
+                            <a href="https://github.com/shubham230523/GolobeTripora" target="_blank" class="text-gray-400 hover:text-white transition text-xl"><i class="fab fa-github"></i></a>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">GolobeTripora</h3>
+                        <p class="text-gray-400 text-sm mb-4">Travel planning and discovery application with a focus on immersive user experiences.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tech-badge">Travel</span>
+                            <span class="tech-badge">Animations</span>
+                            <span class="tech-badge">Kotlin</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KrossIO -->
+                <div class="project-card glass rounded-2xl overflow-hidden flex flex-col">
+                    <div class="p-6 flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <i class="fas fa-file-export text-3xl text-violet-500"></i>
+                            <a href="https://github.com/shubham230523/KrossIO" target="_blank" class="text-gray-400 hover:text-white transition text-xl"><i class="fab fa-github"></i></a>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">KrossIO</h3>
+                        <p class="text-gray-400 text-sm mb-4">Advanced I/O library for Kotlin, simplifying file operations and data streams.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tech-badge">Kotlin</span>
+                            <span class="tech-badge">I/O</span>
+                            <span class="tech-badge">Library</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FoodoraVibeCodingPractice -->
+                <div class="project-card glass rounded-2xl overflow-hidden flex flex-col">
+                    <div class="p-6 flex-grow">
+                        <div class="flex justify-between items-start mb-4">
+                            <i class="fas fa-utensils text-3xl text-orange-400"></i>
+                            <a href="https://github.com/shubham230523/FoodoraVibeCodingPractice" target="_blank" class="text-gray-400 hover:text-white transition text-xl"><i class="fab fa-github"></i></a>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Foodora Vibe</h3>
+                        <p class="text-gray-400 text-sm mb-4">A coding practice project replicating modern food delivery app architectures and vibes.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tech-badge">Practice</span>
+                            <span class="tech-badge">Architecture</span>
+                            <span class="tech-badge">Compose</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 glass border-t-0">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="https://github.com/shubham230523" target="_blank" class="text-gray-400 hover:text-blue-400 transition text-2xl">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-blue-400 transition text-2xl">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-blue-400 transition text-2xl">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </div>
+            <p class="text-gray-500 mono text-sm">
+                Designed & Built by Shubham &copy; 2026
+            </p>
+            <div class="mt-4 text-xs text-gray-600">
+                Built with Tailwind CSS & Jetpack Spirit
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple particle background
+        const canvas = document.createElement('canvas');
+        canvas.style.position = 'fixed';
+        canvas.style.top = '0';
+        canvas.style.left = '0';
+        canvas.style.width = '100%';
+        canvas.style.height = '100%';
+        canvas.style.zIndex = '-2';
+        canvas.style.opacity = '0.3';
+        canvas.style.pointerEvents = 'none';
+        document.body.appendChild(canvas);
+
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 0.5;
+                this.speedX = Math.random() * 1 - 0.5;
+                this.speedY = Math.random() * 1 - 0.5;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x > canvas.width) this.x = 0;
+                if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0;
+                if (this.y < 0) this.y = canvas.height;
+            }
+            draw() {
+                ctx.fillStyle = 'rgba(56, 189, 248, 0.5)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < 50; i++) {
+            particles.push(new Particle());
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
