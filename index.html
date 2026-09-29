@@ -3,925 +3,1694 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shubham | Agentic Engineer | Mobile Architecture Expert</title>
+    <title>Shubham Thorat | Software Engineer — Mobile, AI & Systems</title>
+    <meta name="description" content="Portfolio of Shubham Thorat, Software Engineer with 3 years of experience specializing in Native Android, KMP, CMP, Flutter, React Native, and Agentic AI Systems.">
 
-    <!-- Libraries -->
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Shubham Thorat | Software Engineer — Mobile, AI & Systems">
+    <meta property="og:description" content="Engineering high-performance mobile products, cross-platform systems, and agentic AI developer tools.">
+    <meta property="og:url" content="https://shubham230523.github.io/shubham230523/">
+
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-
     <script>
         tailwind.config = {
             theme: {
                 extend: {
+                    colors: {
+                        ink: '#0B0D0E',
+                        surface: '#131618',
+                        'surface-elevated': '#1B1E22',
+                        ivory: '#F3F0E8',
+                        'ivory-muted': '#9A9FA5',
+                        lime: '#C8F169',
+                        cobalt: '#5B6CFF',
+                        coral: '#FF6B5E'
+                    },
                     fontFamily: {
+                        editorial: ['Space Grotesk', 'sans-serif'],
                         sans: ['Plus Jakarta Sans', 'sans-serif'],
                         mono: ['JetBrains Mono', 'monospace'],
-                    },
-                    colors: {
-                        dark: '#050505',
-                        surface: '#0f0f0f',
-                        accent: {
-                            primary: '#3b82f6',
-                            secondary: '#8b5cf6',
-                            success: '#10b981',
-                        }
-                    },
-                    animation: {
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'float': 'float 6s ease-in-out infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-20px)' },
-                        }
                     }
                 }
             }
         }
     </script>
 
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- GSAP for Smooth Motion -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
     <style>
+        :root {
+            --bg-ink: #0B0D0E;
+            --bg-surface: #131618;
+            --text-ivory: #F3F0E8;
+            --accent-lime: #C8F169;
+            --accent-cobalt: #5B6CFF;
+            --accent-coral: #FF6B5E;
+        }
+
         body {
-            background-color: #050505;
-            color: #fafafa;
+            background-color: var(--bg-ink);
+            color: var(--text-ivory);
+            font-family: 'Plus Jakarta Sans', sans-serif;
             overflow-x: hidden;
+            selection-background-color: var(--accent-lime);
+            selection-color: #000;
         }
 
-        .gradient-blur {
-            position: fixed;
-            width: 100vw;
-            height: 100vh;
-            background:
-                radial-gradient(circle at 0% 0%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 100% 100%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
-            z-index: -1;
-            pointer-events: none;
+        /* Editorial Typography & Accents */
+        .font-editorial {
+            font-family: 'Space Grotesk', sans-serif;
+            letter-spacing: -0.03em;
         }
 
-        .glass {
-            background: rgba(15, 15, 15, 0.7);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
         }
 
-        .card-tilt {
-            transition: transform 0.2s ease-out;
-            transform-style: preserve-3d;
+        /* Subtle Technical Blueprint Background Grid */
+        .blueprint-grid {
+            background-size: 40px 40px;
+            background-image:
+                linear-gradient(to right, rgba(243, 240, 232, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(243, 240, 232, 0.03) 1px, transparent 1px);
         }
 
-        .perspective-card:hover .card-tilt {
-            transform: rotateX(5deg) rotateY(5deg);
-        }
-
-        .gradient-text {
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-size: 200% 200%;
-            animation: gradient-shift 8s ease infinite;
-        }
-
-        @keyframes gradient-shift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .scroll-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-            z-index: 1000;
-            width: 0%;
-        }
-
-        .tech-tag {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 2px 10px;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            color: #94a3b8;
-            transition: all 0.2s;
-        }
-
-        .tech-tag:hover {
-            border-color: #3b82f6;
-            color: #3b82f6;
-            background: rgba(59, 130, 246, 0.05);
+        .blueprint-radial {
+            background: radial-gradient(circle at 50% 20%, rgba(200, 241, 105, 0.04) 0%, rgba(91, 108, 255, 0.03) 45%, transparent 70%);
         }
 
         /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B0D0E;
+        }
         ::-webkit-scrollbar-thumb {
-            background: #1f2937;
+            background: #23272A;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #C8F169;
+        }
+
+        /* Cards & Hover Effects */
+        .editorial-card {
+            background-color: #131618;
+            border: 1px solid rgba(243, 240, 232, 0.08);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .editorial-card:hover {
+            border-color: rgba(200, 241, 105, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .pill-badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            background: rgba(243, 240, 232, 0.05);
+            border: 1px solid rgba(243, 240, 232, 0.1);
+        }
+
+        .tech-pill {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.725rem;
+            color: #C8F169;
+            background: rgba(200, 241, 105, 0.08);
+            border: 1px solid rgba(200, 241, 105, 0.2);
+            padding: 3px 8px;
             border-radius: 4px;
         }
-        ::-webkit-scrollbar-thumb:hover { background: #374151; }
 
-        .bento-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 24px;
-            background: #0f0f0f;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        .tech-pill-cobalt {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.725rem;
+            color: #A5B4FF;
+            background: rgba(91, 108, 255, 0.12);
+            border: 1px solid rgba(91, 108, 255, 0.25);
+            padding: 3px 8px;
+            border-radius: 4px;
         }
 
-        .bento-item:hover {
-            border-color: rgba(59, 130, 246, 0.3);
-            background: #141414;
-            transform: scale(1.01);
+        /* Custom Scroll Progress Bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            background: #C8F169;
+            z-index: 1000;
+            width: 0%;
+            transition: width 0.1s ease-out;
         }
 
-        .marquee-container {
-            display: flex;
-            overflow: hidden;
-            user-select: none;
-            gap: 20px;
-            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-        }
-
-        .marquee-content {
-            flex-shrink: 0;
-            display: flex;
-            justify-content: space-around;
-            gap: 20px;
-            min-width: 100%;
-            animation: scroll-left 30s linear infinite;
-        }
-
-        @keyframes scroll-left {
-            from { transform: translateX(0); }
-            to { transform: translateX(-100%); }
-        }
-
-        .skill-bar-glow {
-            box-shadow: 0 0 15px -2px var(--glow-color);
+        /* Reduced Motion Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            *, ::before, ::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
         }
     </style>
 </head>
-<body class="antialiased">
-    <div class="scroll-progress" id="progress-bar"></div>
-    <div class="gradient-blur"></div>
+<body class="blueprint-grid relative">
+    <div class="progress-bar" id="scrollProgress"></div>
+    <div class="blueprint-radial fixed inset-0 pointer-events-none z-0"></div>
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-[100] px-6 py-4">
-        <div class="max-w-7xl mx-auto glass rounded-2xl px-8 py-3 flex justify-between items-center">
-            <div class="flex items-center gap-2">
-                <div class="w-8 h-8 bg-gradient-to-tr from-blue-600 to-purple-600 rounded-lg flex items-center justify-center font-bold">S</div>
-                <span class="font-bold tracking-tight text-lg mono">SHUBHAM</span>
-            </div>
-            <div class="hidden md:flex gap-8 text-sm font-medium text-gray-400">
-                <a href="#home" class="hover:text-white transition">Home</a>
-                <a href="#about" class="hover:text-white transition">About</a>
-                <a href="#skills" class="hover:text-white transition">Skills</a>
-                <a href="#projects" class="hover:text-white transition">Work</a>
-                <a href="https://github.com/shubham230523" target="_blank" class="text-blue-500 hover:text-blue-400">
+    <!-- Top Navigation -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-ink/80 border-b border-ivory/10 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- Brand -->
+            <a href="#home" class="flex items-center gap-3 group">
+                <div class="w-8 h-8 bg-lime text-ink font-editorial font-bold flex items-center justify-center text-sm rounded-sm group-hover:scale-105 transition-transform">
+                    ST
+                </div>
+                <div>
+                    <span class="font-editorial font-bold tracking-tight text-lg text-ivory block leading-none">SHUBHAM THORAT</span>
+                    <span class="mono text-[10px] text-ivory-muted tracking-widest block uppercase mt-0.5">Software Engineer</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex items-center gap-8 text-xs mono tracking-wider text-ivory-muted uppercase">
+                <a href="#about" class="hover:text-lime transition-colors">01 // Story</a>
+                <a href="#pillars" class="hover:text-lime transition-colors">02 // Pillars</a>
+                <a href="#featured" class="hover:text-lime transition-colors">03 // Featured Work</a>
+                <a href="#constellation" class="hover:text-lime transition-colors">04 // System Map</a>
+                <a href="#stack" class="hover:text-lime transition-colors">05 // Stack</a>
+                <a href="#archive" class="hover:text-lime transition-colors">06 // Archive</a>
+            </nav>
+
+            <!-- Social & Action Links -->
+            <div class="hidden sm:flex items-center gap-4">
+                <a href="https://github.com/shubham230523" target="_blank" rel="noopener noreferrer" class="p-2 text-ivory-muted hover:text-lime transition-colors" aria-label="GitHub Profile">
                     <i class="fab fa-github text-lg"></i>
                 </a>
+                <a href="https://in.linkedin.com/in/shubham-thorat-9489671b2" target="_blank" rel="noopener noreferrer" class="p-2 text-ivory-muted hover:text-cobalt transition-colors" aria-label="LinkedIn Profile">
+                    <i class="fab fa-linkedin text-lg"></i>
+                </a>
+                <a href="#contact" class="px-4 py-2 bg-lime text-ink font-editorial font-semibold text-xs tracking-wide rounded-sm hover:bg-white transition-colors">
+                    CONTACT ME
+                </a>
             </div>
-            <button class="md:hidden text-gray-400"><i class="fas fa-bars"></i></button>
+
+            <!-- Mobile Hamburger Button -->
+            <button id="mobileMenuBtn" class="md:hidden p-2 text-ivory hover:text-lime focus:outline-none" aria-label="Toggle Navigation Menu">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
         </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="relative min-h-screen flex items-center justify-center pt-20 px-6">
-        <div class="max-w-5xl w-full grid lg:grid-cols-2 gap-12 items-center">
-            <div data-aos="fade-right">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-wider mb-6">
-                    <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
-                    Agentic Mobile Engineer
-                </div>
-                <h1 class="text-6xl md:text-8xl font-extrabold tracking-tighter leading-[0.9] mb-8">
-                    Crafting <span class="gradient-text">Scalable</span> <br> Digital Atoms.
-                </h1>
-                <p class="text-xl text-gray-400 leading-relaxed max-w-lg mb-10">
-                    Software Engineer with 3 years of expertise in high-performance mobile architectures, AI-assisted development, and cross-platform mastery.
-                </p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="#projects" class="px-8 py-4 bg-white text-black font-bold rounded-xl hover:bg-gray-200 transition-all flex items-center gap-2">
-                        View Projects <i class="fas fa-arrow-right text-xs"></i>
-                    </a>
-                    <a href="#about" class="px-8 py-4 glass text-white font-bold rounded-xl hover:bg-white/5 transition-all">
-                        Read Story
-                    </a>
-                </div>
-            </div>
-
-            <div class="relative" data-aos="fade-left">
-                <!-- Visual Element: Developer Avatar / Terminal Hybrid -->
-                <div class="relative w-full aspect-square max-w-md mx-auto">
-                    <div class="absolute inset-0 bg-blue-600/20 rounded-full blur-[100px] animate-pulse-slow"></div>
-                    <div class="relative glass rounded-[40px] p-8 h-full border-blue-500/20 flex flex-col justify-between overflow-hidden">
-                        <!-- Terminal UI -->
-                        <div class="mono text-xs space-y-3 opacity-60">
-                            <p class="text-green-500">> initializing_shubham.sh</p>
-                            <p>> [OK] Mobile Architecture Engine loaded</p>
-                            <p>> [OK] KMP / CMP Ecosystem ready</p>
-                            <p>> [OK] Cross Platform integration done</p>
-                            <p class="text-blue-400">> status: ready_to_build</p>
-                        </div>
-
-                        <!-- Avatar Placeholder SVG -->
-                        <div class="flex justify-center flex-grow items-center">
-                            <svg class="w-48 h-48 animate-float" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="100" cy="80" r="40" stroke="#3b82f6" stroke-width="4"/>
-                                <path d="M40 160C40 126.863 66.8629 100 100 100C133.137 100 160 126.863 160 160" stroke="#8b5cf6" stroke-width="4" stroke-linecap="round"/>
-                                <rect x="80" y="65" width="40" height="8" rx="4" fill="#3b82f6" fill-opacity="0.3"/>
-                            </svg>
-                        </div>
-
-                        <div class="flex justify-between items-end">
-                            <div>
-                                <p class="text-2xl font-bold">3+ Years</p>
-                                <p class="text-[10px] uppercase tracking-[0.2em] text-gray-500">Exp. Level</p>
-                            </div>
-                            <div class="flex -space-x-3">
-                                <div class="w-10 h-10 rounded-full bg-blue-600 border-2 border-surface flex items-center justify-center text-xs"><i class="fab fa-android"></i></div>
-                                <div class="w-10 h-10 rounded-full bg-purple-600 border-2 border-surface flex items-center justify-center text-xs"><i class="fab fa-react"></i></div>
-                                <div class="w-10 h-10 rounded-full bg-indigo-600 border-2 border-surface flex items-center justify-center text-xs"><i class="fas fa-code"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <!-- Mobile Drawer -->
+        <div id="mobileDrawer" class="hidden md:hidden bg-surface border-b border-ivory/10 px-6 py-6 space-y-4 text-sm mono uppercase">
+            <a href="#about" class="block text-ivory-muted hover:text-lime py-1">01 // Story</a>
+            <a href="#pillars" class="block text-ivory-muted hover:text-lime py-1">02 // Pillars</a>
+            <a href="#featured" class="block text-ivory-muted hover:text-lime py-1">03 // Featured Work</a>
+            <a href="#constellation" class="block text-ivory-muted hover:text-lime py-1">04 // System Map</a>
+            <a href="#stack" class="block text-ivory-muted hover:text-lime py-1">05 // Stack</a>
+            <a href="#archive" class="block text-ivory-muted hover:text-lime py-1">06 // Archive</a>
+            <div class="pt-4 border-t border-ivory/10 flex items-center justify-between">
+                <a href="https://github.com/shubham230523" target="_blank" class="text-ivory hover:text-lime"><i class="fab fa-github text-xl"></i></a>
+                <a href="https://in.linkedin.com/in/shubham-thorat-9489671b2" target="_blank" class="text-ivory hover:text-cobalt"><i class="fab fa-linkedin text-xl"></i></a>
+                <a href="#contact" class="px-4 py-2 bg-lime text-ink font-editorial font-bold text-xs">CONTACT ME</a>
             </div>
         </div>
-    </section>
+    </header>
 
-    <!-- About Section -->
-    <section id="about" class="pt-32 pb-12 px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid lg:grid-cols-3 gap-12">
-                <div class="lg:col-span-2">
-                    <h2 class="text-4xl md:text-5xl font-extrabold mb-8" data-aos="fade-up">
-                        Beyond <span class="text-blue-500 italic">Code</span>. <br> High-Performance Systems.
-                    </h2>
-                    <div class="space-y-6 text-xl text-gray-400 leading-relaxed max-w-3xl" data-aos="fade-up" data-aos-delay="100">
-                        <p>
-                            I am a Software Engineer dedicated to high-performance mobile application development. My journey is defined by a relentless pursuit of engineering excellence, specializing in <span class="text-white font-semibold">Kotlin Multiplatform (KMP)</span>, <span class="text-white font-semibold">Jetpack Compose</span>, and <span class="text-white font-semibold">Agentic Engineering</span>.
-                        </p>
-                        <p>
-                            I don't just build apps; I architect systems that scale. From building low-latency MQTT clients to autonomous AI agents that run natively on-device, my focus is always on performance, security, and developer experience.
-                        </p>
-                    </div>
-                </div>
-                <div class="space-y-4" data-aos="fade-left">
-                    <div class="p-6 glass rounded-3xl border-l-4 border-blue-600">
-                        <h4 class="text-blue-500 font-bold text-sm uppercase mb-2">Philosophy</h4>
-                        <p class="text-gray-300">Clean architecture is not a rule, it's a competitive advantage.</p>
-                    </div>
-                    <div class="p-6 glass rounded-3xl border-l-4 border-purple-600">
-                        <h4 class="text-purple-500 font-bold text-sm uppercase mb-2">Passion</h4>
-                        <p class="text-gray-300">Competitive Programming, System Design, and AI Integration.</p>
-                    </div>
-                    <div class="p-6 glass rounded-3xl border-l-4 border-emerald-600">
-                        <h4 class="text-emerald-500 font-bold text-sm uppercase mb-2">Recent Win</h4>
-                        <p class="text-gray-300">Certified Agentic Engineer (Mar 2026).</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <main class="relative z-10">
+        <!-- HERO SECTION -->
+        <section id="home" class="min-h-[88vh] flex items-center pt-12 pb-16 px-6">
+            <div class="max-w-7xl mx-auto w-full grid lg:grid-cols-12 gap-12 items-center">
 
-    <!-- Skills Section - Bento Style -->
-    <section id="skills" class="py-12 px-6 bg-[#080808]">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
-                <div>
-                    <h3 class="text-blue-500 font-bold uppercase tracking-widest text-sm mb-4">Technical Arsenal</h3>
-                    <h2 class="text-4xl md:text-6xl font-extrabold tracking-tight">Tools of the Trade.</h2>
-                </div>
-                <p class="text-gray-500 max-w-sm text-right">A curated set of technologies I use to build world-class digital products.</p>
-            </div>
+                <!-- Left Editorial Hero Column -->
+                <div class="lg:col-span-7 space-y-8">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 bg-lime/10 border border-lime/30 rounded-full">
+                        <span class="w-2 h-2 rounded-full bg-lime animate-pulse"></span>
+                        <span class="mono text-xs text-lime uppercase tracking-wider">AVAILABLE FOR MOBILE & AI SYSTEMS ROLES</span>
+                    </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-                <!-- Main Tech -->
-                <div class="md:col-span-2 bento-item p-10 flex flex-col justify-between group" data-aos="zoom-in">
-                    <div class="absolute -right-10 -top-10 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl group-hover:bg-blue-500/20 transition-all"></div>
-                    <div>
-                        <div class="w-14 h-14 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-6 text-blue-500 border border-blue-500/20">
-                            <i class="fas fa-mobile-screen-button text-2xl"></i>
-                        </div>
-                        <h4 class="text-3xl font-bold mb-4">Mobile & Multiplatform</h4>
-                        <p class="text-gray-400 mb-8 leading-relaxed text-lg">Mastering <span class="text-blue-400">Kotlin Multiplatform</span> and <span class="text-purple-400">Jetpack Compose</span> to build high-performance, native-first ecosystems.</p>
+                    <div class="space-y-3">
+                        <span class="mono text-sm text-ivory-muted uppercase tracking-widest block">SOFTWARE ENGINEER & SYSTEM BUILDER</span>
+                        <h1 class="font-editorial text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-ivory leading-[1.02]">
+                            Building Mobile Systems, <br>
+                            <span class="text-lime">Not Just Screens.</span>
+                        </h1>
                     </div>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="tech-tag border-blue-500/20 text-blue-400">Android SDK</span>
-                        <span class="tech-tag border-purple-500/20 text-purple-400">KMP / CMP</span>
-                        <span class="tech-tag border-emerald-500/20 text-emerald-400">Flutter</span>
-                        <span class="tech-tag border-orange-500/20 text-orange-400">React Native</span>
-                        <span class="tech-tag">Playwright</span>
-                        <span class="tech-tag border-blue-500/20 text-blue-400">Browser Auto</span>
-                    </div>
-                </div>
 
-                <!-- Languages -->
-                <div class="bento-item p-10 flex flex-col justify-between group" data-aos="zoom-in" data-aos-delay="100">
-                    <div>
-                        <div class="w-14 h-14 bg-purple-500/10 rounded-2xl flex items-center justify-center mb-6 text-purple-500 border border-purple-500/20">
-                            <i class="fas fa-terminal text-2xl"></i>
-                        </div>
-                        <h4 class="text-2xl font-bold mb-6">Core Stack</h4>
-                    </div>
-                    <div class="space-y-6">
-                        <div class="space-y-2">
-                            <div class="flex justify-between text-xs font-bold tracking-widest uppercase">
-                                <span>Kotlin</span>
-                                <span class="text-blue-400">98%</span>
-                            </div>
-                            <div class="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
-                                <div class="h-full bg-blue-500 skill-bar-glow transition-all duration-1000 w-0" style="--glow-color: #3b82f6; width: 98%;"></div>
-                            </div>
-                        </div>
-                        <div class="space-y-2">
-                            <div class="flex justify-between text-xs font-bold tracking-widest uppercase">
-                                <span>TypeScript</span>
-                                <span class="text-purple-400">85%</span>
-                            </div>
-                            <div class="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
-                                <div class="h-full bg-purple-500 skill-bar-glow transition-all duration-1000 w-0" style="--glow-color: #8b5cf6; width: 85%;"></div>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-2 text-orange-500/60 mono text-[10px] font-bold">
-                            <i class="fas fa-bolt"></i> RUST ENGINE OPTIMIZED
-                        </div>
-                    </div>
-                </div>
+                    <p class="text-lg text-ivory-muted max-w-2xl leading-relaxed">
+                        I am a Software Engineer with <span class="text-ivory font-semibold">3 years of professional expertise</span> specializing in high-performance native Android, Kotlin Multiplatform, Flutter, React Native, and autonomous agentic AI tools.
+                    </p>
 
-                <!-- Architecture -->
-                <div class="bento-item p-10 flex flex-col justify-between group" data-aos="zoom-in" data-aos-delay="200">
-                    <div>
-                        <div class="w-14 h-14 bg-emerald-500/10 rounded-2xl flex items-center justify-center mb-6 text-emerald-500 border border-emerald-500/20">
-                            <i class="fas fa-microchip text-2xl"></i>
-                        </div>
-                        <h4 class="text-2xl font-bold mb-4">Architecture</h4>
-                        <p class="text-sm text-gray-500 leading-relaxed italic">"Clean architecture is not a rule, it's a competitive advantage."</p>
+                    <!-- Direct Action CTAs -->
+                    <div class="flex flex-wrap items-center gap-4 pt-2">
+                        <a href="#featured" class="px-6 py-3.5 bg-lime text-ink font-editorial font-bold text-sm tracking-wide rounded-sm hover:bg-white transition-all flex items-center gap-2">
+                            EXPLORE FEATURED WORK <i class="fas fa-arrow-down text-xs"></i>
+                        </a>
+                        <a href="https://github.com/shubham230523" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 border border-ivory/20 text-ivory font-editorial font-medium text-sm tracking-wide rounded-sm hover:border-lime hover:text-lime transition-all flex items-center gap-2">
+                            <i class="fab fa-github"></i> GITHUB WORKSPACE
+                        </a>
+                        <a href="https://in.linkedin.com/in/shubham-thorat-9489671b2" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 border border-ivory/20 text-ivory font-editorial font-medium text-sm tracking-wide rounded-sm hover:border-cobalt hover:text-cobalt transition-all flex items-center gap-2">
+                            <i class="fab fa-linkedin"></i> LINKEDIN
+                        </a>
                     </div>
-                    <div class="mt-4 p-4 rounded-xl bg-white/5 border border-white/10 text-xs mono text-emerald-400">
-                        MVI + CLEAN + SOLID
-                    </div>
-                </div>
 
-                <!-- AI & Infrastructure (REDESIGNED) -->
-                <div class="md:col-span-2 bento-item p-10 group" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="flex justify-between items-start mb-8">
+                    <!-- Quick Highlights Strip -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-ivory/10">
                         <div>
-                            <h4 class="text-3xl font-bold mb-2">Agentic Core</h4>
-                            <p class="text-gray-400 text-sm">Pioneering edge-AI & RAG workflows.</p>
+                            <div class="font-editorial text-2xl font-bold text-lime">3 YEARS</div>
+                            <div class="mono text-[11px] text-ivory-muted uppercase">Experience</div>
                         </div>
-                        <div class="w-16 h-16 glass rounded-2xl flex items-center justify-center text-blue-500 border-blue-500/20 shadow-2xl shadow-blue-500/10">
-                            <i class="fas fa-brain text-3xl"></i>
+                        <div>
+                            <div class="font-editorial text-2xl font-bold text-ivory">100+ REPOS</div>
+                            <div class="mono text-[11px] text-ivory-muted uppercase">Public Repos</div>
                         </div>
-                    </div>
-
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="p-6 bg-gradient-to-br from-blue-600/10 to-transparent rounded-3xl border border-blue-500/10 hover:border-blue-500/30 transition">
-                            <div class="text-blue-500 text-2xl mb-3"><i class="fas fa-robot"></i></div>
-                            <h5 class="font-bold text-sm mb-1 uppercase tracking-tighter">LLM / RAG</h5>
-                            <p class="text-[10px] text-gray-500">Vector Search & Context Injection</p>
+                        <div>
+                            <div class="font-editorial text-2xl font-bold text-cobalt">KMP & ANDROID</div>
+                            <div class="mono text-[11px] text-ivory-muted uppercase">Core Focus</div>
                         </div>
-                        <div class="p-6 bg-gradient-to-br from-purple-600/10 to-transparent rounded-3xl border border-purple-500/10 hover:border-purple-500/30 transition">
-                            <div class="text-purple-500 text-2xl mb-3"><i class="fas fa-cloud-bolt"></i></div>
-                            <h5 class="font-bold text-sm mb-1 uppercase tracking-tighter">AWS / GCP</h5>
-                            <p class="text-[10px] text-gray-500">Serverless & High Availability</p>
+                        <div>
+                            <div class="font-editorial text-2xl font-bold text-coral">AGENTIC AI</div>
+                            <div class="mono text-[11px] text-ivory-muted uppercase">Practitioner</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Quality Assurance (REDESIGNED) -->
-                <div class="md:col-span-2 bento-item p-10 flex flex-col justify-between" data-aos="zoom-in" data-aos-delay="400">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="w-10 h-10 bg-emerald-500/10 rounded-xl flex items-center justify-center text-emerald-500">
-                            <i class="fas fa-check-double"></i>
+                <!-- Right Interactive Kinetic System Matrix Animation -->
+                <div class="lg:col-span-5">
+                    <div class="editorial-card p-6 rounded-sm relative overflow-hidden border border-ivory/15 bg-surface">
+                        <!-- Canvas Header -->
+                        <div class="flex items-center justify-between pb-4 border-b border-ivory/10 mb-4">
+                            <div class="flex items-center gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-lime animate-pulse inline-block"></span>
+                                <span class="mono text-xs text-ivory font-bold uppercase tracking-wider">KINETIC_SYSTEM_MATRIX</span>
+                            </div>
+                            <span class="mono text-[10px] text-lime uppercase bg-lime/10 px-2 py-0.5 rounded border border-lime/20">LIVE SIGNAL</span>
                         </div>
-                        <h4 class="text-2xl font-bold">Reliability Engineering</h4>
+
+                        <!-- Animated Kinetic Canvas Display -->
+                        <div class="relative w-full aspect-square max-h-[310px] bg-ink rounded-sm border border-ivory/10 overflow-hidden flex items-center justify-center">
+                            <canvas id="heroMatrixCanvas" class="w-full h-full block cursor-pointer"></canvas>
+                        </div>
+
+                        <!-- Interactive Status Footer -->
+                        <div class="pt-4 flex items-center justify-between mono text-[10px] text-ivory-muted border-t border-ivory/10 mt-4">
+                            <span class="flex items-center gap-1.5"><i class="fas fa-satellite text-lime text-[10px]"></i> Orbit: <strong class="text-ivory">Mobile + AI + KMP Nodes</strong></span>
+                            <span class="text-lime font-bold">CLICK CANVAS TO PULSE</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ABOUT & STORY SECTION -->
+        <section id="about" class="py-20 px-6 border-t border-ivory/10 bg-surface/50">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid lg:grid-cols-12 gap-12 items-start">
+
+                    <div class="lg:col-span-4">
+                        <div class="sticky top-28 space-y-4">
+                            <span class="mono text-xs text-lime uppercase tracking-widest block">01 // THE ENGINEER</span>
+                            <h2 class="font-editorial text-4xl sm:text-5xl font-bold text-ivory">
+                                Architecting for <br>
+                                <span class="text-lime">Scale & Clarity.</span>
+                            </h2>
+                            <p class="text-sm text-ivory-muted leading-relaxed">
+                                Software engineering is about building robust, resilient, and observable systems that scale seamlessly.
+                            </p>
+                        </div>
                     </div>
 
-                    <div class="grid grid-cols-3 gap-4 text-center">
-                        <div class="p-4 glass rounded-2xl border-emerald-500/20">
-                            <div class="text-2xl font-black text-emerald-400">100%</div>
-                            <div class="text-[8px] uppercase text-gray-500 font-bold">Unit Test</div>
+                    <div class="lg:col-span-8 space-y-8">
+                        <div class="editorial-card p-8 rounded-sm space-y-6">
+                            <h3 class="font-editorial text-2xl font-bold text-ivory">My Engineering Journey</h3>
+                            <div class="space-y-4 text-ivory-muted leading-relaxed text-base">
+                                <p>
+                                    With <span class="text-ivory font-semibold">3 years of software engineering experience</span>, I have focused on mastering high-performance <span class="text-lime font-medium">Native Android</span> alongside cross-platform technologies including <span class="text-lime font-medium">Flutter</span>, <span class="text-lime font-medium">React Native</span>, <span class="text-lime font-medium">Kotlin Multiplatform (KMP)</span>, and <span class="text-lime font-medium">Compose Multiplatform (CMP)</span>.
+                                </p>
+                                <p>
+                                    In the AI engineering domain, my expertise spans <span class="text-ivory font-semibold">Retrieval-Augmented Generation (RAG)</span> pipelines, <span class="text-ivory font-semibold">On-Device Models (Ollama / Gemma)</span>, <span class="text-ivory font-semibold">Vector Databases</span>, <span class="text-ivory font-semibold">LangGraph Multi-Agent Workflows</span>, and <span class="text-ivory font-semibold">OpenRouter LLM Routing</span>.
+                                </p>
+                                <p>
+                                    My goal is to continuously push boundaries by building autonomous agentic tools like <span class="text-ivory font-semibold">Kindle</span> and <span class="text-ivory font-semibold">ApplyAI</span>, multi-agent automated PR generators like <span class="text-ivory font-semibold">Loom</span>, and memory-persistent engines like <span class="text-ivory font-semibold">Memora</span> with low-latency and clean architecture.
+                                </p>
+                            </div>
                         </div>
-                        <div class="p-4 glass rounded-2xl border-blue-500/20">
-                            <div class="text-2xl font-black text-blue-400">95%</div>
-                            <div class="text-[8px] uppercase text-gray-500 font-bold">UI Auto</div>
-                        </div>
-                        <div class="p-4 glass rounded-2xl border-purple-500/20">
-                            <div class="text-2xl font-black text-purple-400">2ms</div>
-                            <div class="text-[8px] uppercase text-gray-500 font-bold">Latency</div>
+
+                        <!-- Highlights Grid -->
+                        <div class="grid md:grid-cols-3 gap-6">
+                            <div class="editorial-card p-6 rounded-sm space-y-2 border-l-2 border-l-lime">
+                                <div class="mono text-xs text-lime uppercase">Philosophy</div>
+                                <h4 class="font-editorial text-lg font-bold text-ivory">Clean Architecture</h4>
+                                <p class="text-xs text-ivory-muted">Decoupled domain models, strict MVI/MVVM states, and predictable data flow.</p>
+                            </div>
+                            <div class="editorial-card p-6 rounded-sm space-y-2 border-l-2 border-l-cobalt">
+                                <div class="mono text-xs text-cobalt uppercase">Cross-Platform</div>
+                                <h4 class="font-editorial text-lg font-bold text-ivory">KMP, CMP, Flutter & RN</h4>
+                                <p class="text-xs text-ivory-muted">Shared core business logic across Android, iOS, Desktop, and Web.</p>
+                            </div>
+                            <div class="editorial-card p-6 rounded-sm space-y-2 border-l-2 border-l-coral">
+                                <div class="mono text-xs text-coral uppercase">AI Engineering</div>
+                                <h4 class="font-editorial text-lg font-bold text-ivory">RAG & Agentic Loops</h4>
+                                <p class="text-xs text-ivory-muted">LangGraph multi-agent workflows, vector databases, and on-device model inference.</p>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="mt-6 flex items-center gap-3 text-[10px] text-gray-500 mono bg-white/5 p-3 rounded-xl border border-white/5">
-                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                        APPX STABILITY REPORT: ALL SYSTEMS NOMINAL
-                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="pt-12 pb-16 px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-24">
-                <h3 class="text-blue-500 font-bold uppercase tracking-widest text-sm mb-4">Selected Work</h3>
-                <h2 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6">Building the <span class="gradient-text">Future</span>.</h2>
-                <p class="text-gray-400 max-w-2xl mx-auto text-lg">A showcase of production-grade libraries, AI agents, and high-performance applications.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-                <!-- Project: ApplyAI -->
-                <div class="group perspective-card" data-aos="fade-up">
-                    <div class="card-tilt glass rounded-[32px] p-8 h-full flex flex-col border-blue-500/30 hover:border-blue-500/60 transition-all duration-500 shadow-2xl shadow-blue-500/10">
-                        <div class="flex justify-between mb-8">
-                            <div class="w-14 h-14 bg-blue-600/10 rounded-2xl flex items-center justify-center text-blue-500 group-hover:scale-110 transition border border-blue-500/20">
-                                <i class="fas fa-magic text-2xl"></i>
-                            </div>
-                            <a href="https://github.com/shubham230523/ApplyAI" target="_blank" class="text-gray-600 hover:text-white transition"><i class="fab fa-github text-xl"></i></a>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-3 group-hover:text-blue-400 transition text-white">ApplyAI</h3>
-                        <p class="text-gray-400 text-sm mb-6 flex-grow leading-relaxed font-medium">Next-gen AI job application automation. Orchestrates intelligent resume tailoring and auto-fill engines across complex job portals using multimodal LLMs.</p>
-                        <div class="flex flex-wrap gap-2 mt-auto">
-                            <span class="tech-tag border-blue-500/30 text-blue-400">Gemini / OpenRouter</span>
-                            <span class="tech-tag">Supabase</span>
-                            <span class="tech-tag text-purple-400">Agentic AI</span>
-                        </div>
+        <!-- WHAT I BUILD (4 CORE PILLARS) -->
+        <section id="pillars" class="py-20 px-6 border-t border-ivory/10">
+            <div class="max-w-7xl mx-auto space-y-12">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                    <div>
+                        <span class="mono text-xs text-lime uppercase tracking-widest block mb-2">02 // WHAT I BUILD</span>
+                        <h2 class="font-editorial text-4xl md:text-5xl font-bold text-ivory">Engineering Pillars</h2>
                     </div>
+                    <p class="text-ivory-muted max-w-md text-sm">
+                        Four core domains defining my software engineering methodology and project output.
+                    </p>
                 </div>
 
-                <!-- Project: Flint -->
-                <div class="group perspective-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card-tilt glass rounded-[32px] p-8 h-full flex flex-col border-orange-500/30 hover:border-orange-500/60 transition-all duration-500 shadow-2xl shadow-orange-500/10">
-                        <div class="flex justify-between mb-8">
-                            <div class="w-14 h-14 bg-orange-600/10 rounded-2xl flex items-center justify-center text-orange-500 group-hover:scale-110 transition border border-orange-500/20">
-                                <i class="fas fa-fire-flame-curved text-2xl"></i>
-                            </div>
-                            <a href="https://github.com/shubham230523/Flint" target="_blank" class="text-gray-600 hover:text-white transition"><i class="fab fa-github text-xl"></i></a>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Pillar 1: Mobile Systems -->
+                    <div class="editorial-card p-8 rounded-sm space-y-6 relative overflow-hidden group">
+                        <div class="flex items-center justify-between">
+                            <div class="w-12 h-12 bg-lime/10 text-lime font-mono font-bold flex items-center justify-center text-lg rounded-sm">01</div>
+                            <span class="pill-badge text-lime">ANDROID & MOBILE</span>
                         </div>
-                        <div class="inline-flex items-center gap-2 px-2 py-0.5 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-[10px] font-bold uppercase tracking-wider mb-4 w-fit">
-                            <span class="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse"></span>
-                            Dev in Progress
+                        <div class="space-y-3">
+                            <h3 class="font-editorial text-2xl font-bold text-ivory group-hover:text-lime transition-colors">Native Android & Systems</h3>
+                            <p class="text-sm text-ivory-muted leading-relaxed">
+                                Native Android development using Kotlin, Jetpack Compose, Room, Coroutines, and Android Framework internals. Structured with strict Clean Architecture, MVI, and zero-memory-leak state management.
+                            </p>
                         </div>
-                        <h3 class="text-2xl font-bold mb-3 group-hover:text-orange-400 transition text-white">Flint</h3>
-                        <p class="text-gray-400 text-sm mb-6 flex-grow leading-relaxed font-medium">Cross-Platform AI Content Operating System. Transforms single ideas or raw media into multi-platform campaigns (YouTube scripts, X threads, newsletters) with Creator DNA style matching.</p>
-                        <div class="flex flex-wrap gap-2 mt-auto">
-                            <span class="tech-tag border-orange-500/30 text-orange-400">Compose Multiplatform</span>
-                            <span class="tech-tag">KMP</span>
-                            <span class="tech-tag text-blue-400">Firebase / Ktor</span>
-                            <span class="tech-tag text-purple-400">AI Engine</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project: Veya -->
-                <div class="group perspective-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card-tilt glass rounded-[32px] p-8 h-full flex flex-col border-violet-500/30 hover:border-violet-500/60 transition-all duration-500 shadow-2xl shadow-violet-500/10">
-                        <div class="flex justify-between mb-8">
-                            <div class="w-14 h-14 bg-violet-600/10 rounded-2xl flex items-center justify-center text-violet-500 group-hover:scale-110 transition border border-violet-500/20">
-                                <i class="fas fa-diagram-project text-2xl"></i>
-                            </div>
-                            <a href="https://github.com/shubham230523/Veya" target="_blank" class="text-gray-600 hover:text-white transition"><i class="fab fa-github text-xl"></i></a>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-3 group-hover:text-violet-400 transition text-white">Veya</h3>
-                        <p class="text-gray-400 text-sm mb-6 flex-grow leading-relaxed font-medium">Universal AI Skill Engine. Translates natural language goals into structured execution pipelines, modular AI workflows, and provider-native prompts for Gemini, Claude, and GPT.</p>
-                        <div class="flex flex-wrap gap-2 mt-auto">
-                            <span class="tech-tag border-violet-500/30 text-violet-400">React Native</span>
-                            <span class="tech-tag">Expo</span>
-                            <span class="tech-tag text-emerald-400">Supabase</span>
-                            <span class="tech-tag text-blue-400">OpenRouter</span>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="tech-pill">Android SDK</span>
+                            <span class="tech-pill">Kotlin</span>
+                            <span class="tech-pill">Jetpack Compose</span>
+                            <span class="tech-pill">Room DB</span>
+                            <span class="tech-pill">MVI / MVVM</span>
                         </div>
                     </div>
-                </div>
 
-                <!-- Project: Orbit -->
-                <div class="group perspective-card" data-aos="fade-up">
-                    <div class="card-tilt glass rounded-[32px] p-8 h-full flex flex-col border-indigo-500/30 hover:border-indigo-500/60 transition-all duration-500 shadow-2xl shadow-indigo-500/10">
-                        <div class="flex justify-between mb-8">
-                            <div class="w-14 h-14 bg-indigo-600/10 rounded-2xl flex items-center justify-center text-indigo-500 group-hover:scale-110 transition border border-indigo-500/20">
-                                <i class="fas fa-compass text-2xl"></i>
-                            </div>
-                            <a href="https://github.com/shubham230523/Orbit" target="_blank" class="text-gray-600 hover:text-white transition"><i class="fab fa-github text-xl"></i></a>
+                    <!-- Pillar 2: AI & Agentic Products -->
+                    <div class="editorial-card p-8 rounded-sm space-y-6 relative overflow-hidden group">
+                        <div class="flex items-center justify-between">
+                            <div class="w-12 h-12 bg-cobalt/10 text-cobalt font-mono font-bold flex items-center justify-center text-lg rounded-sm">02</div>
+                            <span class="pill-badge text-cobalt">AI & AGENTS</span>
                         </div>
-                        <h3 class="text-2xl font-bold mb-3 group-hover:text-indigo-400 transition text-white">Orbit</h3>
-                        <p class="text-gray-400 text-sm mb-6 flex-grow leading-relaxed font-medium">AI Life Operating System. An adaptive planning engine that transforms natural language goals into executable roadmaps and intelligent schedules.</p>
-                        <div class="flex flex-wrap gap-2 mt-auto">
-                            <span class="tech-tag border-indigo-500/30 text-indigo-400">React Native</span>
-                            <span class="tech-tag">Kotlin / Ktor</span>
-                            <span class="tech-tag text-emerald-400">LangGraph</span>
+                        <div class="space-y-3">
+                            <h3 class="font-editorial text-2xl font-bold text-ivory group-hover:text-cobalt transition-colors">AI Products & Agentic Systems</h3>
+                            <p class="text-sm text-ivory-muted leading-relaxed">
+                                Building autonomous AI systems beyond basic chatbots. Implementing Retrieval-Augmented Generation (RAG), vector databases, multi-agent state graphs via LangGraph, OpenRouter, and Ollama on-device inference.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="tech-pill-cobalt">RAG Systems</span>
+                            <span class="tech-pill-cobalt">LangGraph</span>
+                            <span class="tech-pill-cobalt">Ollama / Gemma</span>
+                            <span class="tech-pill-cobalt">Vector DB</span>
+                            <span class="tech-pill-cobalt">OpenRouter</span>
                         </div>
                     </div>
-                </div>
 
-                <!-- Project: Memora -->
-                <div class="group perspective-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card-tilt glass rounded-[32px] p-8 h-full flex flex-col border-pink-500/30 hover:border-pink-500/60 transition-all duration-500 shadow-2xl shadow-pink-500/10">
-                        <div class="flex justify-between mb-8">
-                            <div class="w-14 h-14 bg-pink-600/10 rounded-2xl flex items-center justify-center text-pink-500 group-hover:scale-110 transition border border-pink-500/20">
-                                <i class="fas fa-brain text-2xl"></i>
-                            </div>
-                            <a href="https://github.com/shubham230523/Memora" target="_blank" class="text-gray-600 hover:text-white transition"><i class="fab fa-github text-xl"></i></a>
+                    <!-- Pillar 3: Developer Tools -->
+                    <div class="editorial-card p-8 rounded-sm space-y-6 relative overflow-hidden group">
+                        <div class="flex items-center justify-between">
+                            <div class="w-12 h-12 bg-coral/10 text-coral font-mono font-bold flex items-center justify-center text-lg rounded-sm">03</div>
+                            <span class="pill-badge text-coral">DEV TOOLS</span>
                         </div>
-                        <h3 class="text-2xl font-bold mb-3 group-hover:text-pink-400 transition text-white">Memora</h3>
-                        <p class="text-gray-400 text-sm mb-6 flex-grow leading-relaxed font-medium">Conversational AI with Long-Term Memory. Features memory isolation and real-time semantic search for personalized persistent context.</p>
-                        <div class="flex flex-wrap gap-2 mt-auto">
-                            <span class="tech-tag border-pink-500/30 text-pink-400">React Native</span>
-                            <span class="tech-tag">RAG</span>
-                            <span class="tech-tag text-blue-400">On-device AI</span>
+                        <div class="space-y-3">
+                            <h3 class="font-editorial text-2xl font-bold text-ivory group-hover:text-coral transition-colors">Developer Tools & Infrastructure</h3>
+                            <p class="text-sm text-ivory-muted leading-relaxed">
+                                Utilities that empower engineers. Multi-agent pull-request creation bots (Loom), low-overhead network monitoring libraries (TraceFlow), and automated testing CLIs powered by Vision AI (TestPilotAI).
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="tech-pill">LangGraph PR Agent</span>
+                            <span class="tech-pill">Ktor Interceptors</span>
+                            <span class="tech-pill">Rust UniFFI</span>
+                            <span class="tech-pill">Vision AI CLI</span>
                         </div>
                     </div>
-                </div>
 
-                <!-- Project: RAGentrix -->
-                <div class="group perspective-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card-tilt glass rounded-[32px] p-8 h-full flex flex-col hover:border-blue-500/40 transition-all duration-500">
-                        <div class="flex justify-between mb-8">
-                            <div class="w-14 h-14 bg-blue-600/10 rounded-2xl flex items-center justify-center text-blue-500 group-hover:scale-110 transition">
-                                <i class="fas fa-microchip text-2xl"></i>
-                            </div>
-                            <a href="https://github.com/shubham230523/RAGentrix" target="_blank" class="text-gray-600 hover:text-white transition"><i class="fab fa-github text-xl"></i></a>
+                    <!-- Pillar 4: Cross-Platform -->
+                    <div class="editorial-card p-8 rounded-sm space-y-6 relative overflow-hidden group">
+                        <div class="flex items-center justify-between">
+                            <div class="w-12 h-12 bg-lime/10 text-lime font-mono font-bold flex items-center justify-center text-lg rounded-sm">04</div>
+                            <span class="pill-badge text-lime">MULTI-TARGET</span>
                         </div>
-                        <h3 class="text-2xl font-bold mb-3 group-hover:text-blue-400 transition">RAGentrix</h3>
-                        <p class="text-gray-400 text-sm mb-6 flex-grow leading-relaxed">Advanced Retrieval-Augmented Generation system. Hybrid inference switching between cloud (Gemini) and on-device (Gemma) models.</p>
-                        <div class="flex flex-wrap gap-2 mt-auto">
-                            <span class="tech-tag">KMP</span>
-                            <span class="tech-tag">Gemini API</span>
-                            <span class="tech-tag">RAG</span>
-                            <span class="tech-tag">Edge AI</span>
+                        <div class="space-y-3">
+                            <h3 class="font-editorial text-2xl font-bold text-ivory group-hover:text-lime transition-colors">Cross-Platform Mastery</h3>
+                            <p class="text-sm text-ivory-muted leading-relaxed">
+                                Single-source business logic rendered natively across platforms. Extensive practical experience with Kotlin Multiplatform (KMP), Compose Multiplatform (CMP), Flutter, and React Native.
+                            </p>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Project: PhonePilotAI -->
-                <div class="group perspective-card" data-aos="fade-up">
-                    <div class="card-tilt glass rounded-[32px] p-8 h-full flex flex-col border-purple-500/10 hover:border-purple-500/40 transition-all duration-500">
-                        <div class="flex justify-between mb-8">
-                            <div class="w-14 h-14 bg-purple-600/10 rounded-2xl flex items-center justify-center text-purple-500 group-hover:scale-110 transition">
-                                <i class="fas fa-robot text-2xl"></i>
-                            </div>
-                            <a href="https://github.com/shubham230523/PhonePilotAI" target="_blank" class="text-gray-600 hover:text-white transition"><i class="fab fa-github text-xl"></i></a>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-3 group-hover:text-purple-400 transition">PhonePilotAI</h3>
-                        <p class="text-gray-400 text-sm mb-6 flex-grow leading-relaxed">Autonomous AI platform for Android. Features a high-performance Rust core (UniFFI) for battery-optimized persistent AI workflows.</p>
-                        <div class="flex flex-wrap gap-2 mt-auto">
-                            <span class="tech-tag">Kotlin</span>
-                            <span class="tech-tag">Rust Core</span>
-                            <span class="tech-tag">Agentic AI</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project: Loom -->
-                <div class="group perspective-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card-tilt glass rounded-[32px] p-8 h-full flex flex-col border-blue-500/20 hover:border-blue-500/40 transition-all duration-500 shadow-xl shadow-blue-500/5">
-                        <div class="flex justify-between mb-8">
-                            <div class="w-14 h-14 bg-blue-600/10 rounded-2xl flex items-center justify-center text-blue-500 group-hover:scale-110 transition">
-                                <i class="fas fa-code-merge text-2xl"></i>
-                            </div>
-                            <a href="https://github.com/shubham230523/Loom" target="_blank" class="text-gray-600 hover:text-white transition"><i class="fab fa-github text-xl"></i></a>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-3 group-hover:text-blue-400 transition">Loom</h3>
-                        <p class="text-gray-400 text-sm mb-6 flex-grow leading-relaxed">Open-Source Contribution Agent. A human-in-the-loop multi-agent system that analyzes unfamiliar codebases, implements features, and automates PR creation.</p>
-                        <div class="flex flex-wrap gap-2 mt-auto">
-                            <span class="tech-tag">React Native</span>
-                            <span class="tech-tag">Python / LangGraph</span>
-                            <span class="tech-tag">Docker</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project: Toto -->
-                <div class="group perspective-card" data-aos="fade-up">
-                    <div class="card-tilt glass rounded-[32px] p-8 h-full flex flex-col border-cyan-500/20 hover:border-cyan-500/40 transition-all duration-500 shadow-xl shadow-cyan-500/5">
-                        <div class="flex justify-between mb-8">
-                            <div class="w-14 h-14 bg-cyan-600/10 rounded-2xl flex items-center justify-center text-cyan-400 group-hover:scale-110 transition">
-                                <i class="fas fa-film text-2xl"></i>
-                            </div>
-                            <a href="https://github.com/shubham230523/Toto" target="_blank" class="text-gray-600 hover:text-white transition"><i class="fab fa-github text-xl"></i></a>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-3 group-hover:text-cyan-400 transition">Toto</h3>
-                        <p class="text-gray-400 text-sm mb-6 flex-grow leading-relaxed">Generative Animated Learning. A zero-UI toddler platform that transforms AI-generated stories into animated episodes using Godot 4 and Gemini.</p>
-                        <div class="flex flex-wrap gap-2 mt-auto">
-                            <span class="tech-tag">Flutter</span>
-                            <span class="tech-tag">FFMPEG</span>
-                            <span class="tech-tag">Pollination AI</span>
-                            <span class="tech-tag">Gemini / GenAI</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project: Echo -->
-                <div class="group perspective-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card-tilt glass rounded-[32px] p-8 h-full flex flex-col border-blue-500/20 hover:border-blue-500/40 transition-all duration-500">
-                        <div class="flex justify-between mb-8">
-                            <div class="w-14 h-14 bg-blue-600/10 rounded-2xl flex items-center justify-center text-blue-500 group-hover:scale-110 transition">
-                                <i class="fas fa-volume-up text-2xl"></i>
-                            </div>
-                            <a href="https://github.com/shubham230523/Echo" target="_blank" class="text-gray-600 hover:text-white transition"><i class="fab fa-github text-xl"></i></a>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-3 group-hover:text-blue-400 transition">Echo</h3>
-                        <p class="text-gray-400 text-sm mb-6 flex-grow leading-relaxed">Sonorous Audiobook Synthesizer. An agentic KMP platform transforming static PDFs into immersive audiobooks with automated chapter detection and AI-voice quality assurance.</p>
-                        <div class="flex flex-wrap gap-2 mt-auto">
-                            <span class="tech-tag">KMP / CMP</span>
-                            <span class="tech-tag">Ollama</span>
-                            <span class="tech-tag">AI Narration</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project: Relay -->
-                <div class="group perspective-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card-tilt glass rounded-[32px] p-8 h-full flex flex-col border-purple-500/20 hover:border-purple-500/40 transition-all duration-500">
-                        <div class="flex justify-between mb-8">
-                            <div class="w-14 h-14 bg-purple-600/10 rounded-2xl flex items-center justify-center text-purple-500 group-hover:scale-110 transition">
-                                <i class="fas fa-project-diagram text-2xl"></i>
-                            </div>
-                            <a href="https://github.com/shubham230523/Relay" target="_blank" class="text-gray-600 hover:text-white transition"><i class="fab fa-github text-xl"></i></a>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-3 group-hover:text-purple-400 transition">Relay</h3>
-                        <p class="text-gray-400 text-sm mb-6 flex-grow leading-relaxed">Intent-Driven Automation. A cross-platform LLM engine that translates natural language into complex, self-healing workflows—bridging human thought and digital action.</p>
-                        <div class="flex flex-wrap gap-2 mt-auto">
-                            <span class="tech-tag">Flutter</span>
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag text-emerald-400">LangGraph</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project: Kindle -->
-                <div class="group perspective-card" data-aos="fade-up">
-                    <div class="card-tilt glass rounded-[32px] p-8 h-full flex flex-col border-amber-500/20 hover:border-amber-500/40 transition-all duration-500">
-                        <div class="flex justify-between mb-8">
-                            <div class="w-14 h-14 bg-amber-600/10 rounded-2xl flex items-center justify-center text-amber-500 group-hover:scale-110 transition">
-                                <i class="fas fa-fire text-2xl"></i>
-                            </div>
-                            <a href="https://github.com/shubham230523/kindle" target="_blank" class="text-gray-600 hover:text-white transition"><i class="fab fa-github text-xl"></i></a>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-3 group-hover:text-amber-400 transition">Kindle</h3>
-                        <p class="text-gray-400 text-sm mb-6 flex-grow leading-relaxed">Software Alchemy Platform. An end-to-end agentic workflow that distills abstract ideas into buildable, multi-platform applications—from architecture to self-healing code generation.</p>
-                        <div class="flex flex-wrap gap-2 mt-auto">
-                            <span class="tech-tag">Flutter</span>
-                            <span class="tech-tag">PostgreSQL</span>
-                            <span class="tech-tag text-blue-400">Multi-Agent</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project: TraceFlow -->
-                <div class="group perspective-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card-tilt glass rounded-[32px] p-8 h-full flex flex-col border-emerald-500/10 hover:border-emerald-500/40 transition-all duration-500">
-                        <div class="flex justify-between mb-8">
-                            <div class="w-14 h-14 bg-emerald-600/10 rounded-2xl flex items-center justify-center text-emerald-500 group-hover:scale-110 transition">
-                                <i class="fas fa-microscope text-2xl"></i>
-                            </div>
-                            <a href="https://github.com/shubham230523/TraceFlow" target="_blank" class="text-gray-600 hover:text-white transition"><i class="fab fa-github text-xl"></i></a>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-3 group-hover:text-emerald-400 transition">TraceFlow</h3>
-                        <p class="text-gray-400 text-sm mb-6 flex-grow leading-relaxed">Real-time KMP network inspection library. Monitors HTTP traffic for Ktor apps with minimal overhead (< 2% CPU).</p>
-                        <div class="flex flex-wrap gap-2 mt-auto">
-                            <span class="tech-tag">KMP</span>
-                            <span class="tech-tag">Ktor</span>
-                            <span class="tech-tag">Networking</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project: Investo -->
-                <div class="group perspective-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card-tilt glass rounded-[32px] p-8 h-full flex flex-col hover:border-blue-500/40 transition-all duration-500">
-                        <div class="flex justify-between mb-8">
-                            <div class="w-14 h-14 bg-emerald-600/10 rounded-2xl flex items-center justify-center text-emerald-400 group-hover:scale-110 transition">
-                                <i class="fas fa-chart-line text-2xl"></i>
-                            </div>
-                            <a href="https://github.com/shubham230523/Investo" target="_blank" class="text-gray-600 hover:text-white transition"><i class="fab fa-github text-xl"></i></a>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-3 group-hover:text-blue-400 transition">Investo</h3>
-                        <p class="text-gray-400 text-sm mb-6 flex-grow leading-relaxed">AI-driven investment advisor built with Flutter. Personalized recommendations powered by GenAI and Supabase backend.</p>
-                        <div class="flex flex-wrap gap-2 mt-auto">
-                            <span class="tech-tag">Flutter</span>
-                            <span class="tech-tag">Supabase</span>
-                            <span class="tech-tag">AI</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project: TestPilotAI -->
-                <div class="group perspective-card" data-aos="fade-up">
-                    <div class="card-tilt glass rounded-[32px] p-8 h-full flex flex-col border-amber-500/10 hover:border-amber-500/40 transition-all duration-500">
-                        <div class="flex justify-between mb-8">
-                            <div class="w-14 h-14 bg-amber-600/10 rounded-2xl flex items-center justify-center text-amber-500 group-hover:scale-110 transition">
-                                <i class="fas fa-flask text-2xl"></i>
-                            </div>
-                            <a href="https://github.com/shubham230523/TestPilotAI" target="_blank" class="text-gray-600 hover:text-white transition"><i class="fab fa-github text-xl"></i></a>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-3 group-hover:text-amber-400 transition">TestPilotAI</h3>
-                        <p class="text-gray-400 text-sm mb-6 flex-grow leading-relaxed">AI-powered mobile testing CLI. Natural language test definitions using Vision AI models (Gemini/GPT-4V) for auto-repair loops.</p>
-                        <div class="flex flex-wrap gap-2 mt-auto">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Appium</span>
-                            <span class="tech-tag">Multimodal AI</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project: TravelSphereKmp -->
-                <div class="group perspective-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card-tilt glass rounded-[32px] p-8 h-full flex flex-col border-sky-500/10 hover:border-sky-500/40 transition-all duration-500">
-                        <div class="flex justify-between mb-8">
-                            <div class="w-14 h-14 bg-sky-600/10 rounded-2xl flex items-center justify-center text-sky-500 group-hover:scale-110 transition">
-                                <i class="fas fa-globe text-2xl"></i>
-                            </div>
-                            <a href="https://github.com/shubham230523/TravelSphereKmp" target="_blank" class="text-gray-600 hover:text-white transition"><i class="fab fa-github text-xl"></i></a>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-3 group-hover:text-sky-400 transition">TravelSphere KMP</h3>
-                        <p class="text-gray-400 text-sm mb-6 flex-grow leading-relaxed">Modern cross-platform exploration app. Features 100% shared UI code using Compose Multiplatform across Android, iOS, Web, and Desktop.</p>
-                        <div class="flex flex-wrap gap-2 mt-auto">
-                            <span class="tech-tag">KMP</span>
-                            <span class="tech-tag">CMP</span>
-                            <span class="tech-tag">Shared UI</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Infinite Marquee for Secondary Projects -->
-                <div class="col-span-full mt-24">
-                    <div class="text-center mb-10">
-                        <p class="text-xs uppercase tracking-[0.4em] text-gray-600 font-bold mb-2">Utility Ecosystem</p>
-                        <div class="w-12 h-1 bg-blue-500/50 mx-auto rounded-full"></div>
-                    </div>
-
-                    <div class="marquee-container">
-                        <div class="marquee-content py-4">
-                            <!-- Project Items (Double them for smooth loop) -->
-                            <a href="https://github.com/shubham230523/KtorMQTTX" target="_blank" class="p-6 glass rounded-[24px] flex items-center gap-4 hover:border-blue-500/30 transition w-[240px]">
-                                <div class="w-10 h-10 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-500"><i class="fas fa-exchange-alt"></i></div>
-                                <span class="font-bold text-sm tracking-tighter">KTORMQTTX</span>
-                            </a>
-                            <a href="https://github.com/shubham230523/KrossShield" target="_blank" class="p-6 glass rounded-[24px] flex items-center gap-4 hover:border-yellow-500/30 transition w-[240px]">
-                                <div class="w-10 h-10 bg-yellow-500/10 rounded-xl flex items-center justify-center text-yellow-500"><i class="fas fa-shield-alt"></i></div>
-                                <span class="font-bold text-sm tracking-tighter">KROSSSHIELD</span>
-                            </a>
-                            <a href="https://github.com/shubham230523/KrossIO" target="_blank" class="p-6 glass rounded-[24px] flex items-center gap-4 hover:border-violet-500/30 transition w-[240px]">
-                                <div class="w-10 h-10 bg-violet-500/10 rounded-xl flex items-center justify-center text-violet-500"><i class="fas fa-file-import"></i></div>
-                                <span class="font-bold text-sm tracking-tighter">KROSSIO</span>
-                            </a>
-                            <a href="https://github.com/shubham230523/CineNexusAndroidTV" target="_blank" class="p-6 glass rounded-[24px] flex items-center gap-4 hover:border-red-500/30 transition w-[240px]">
-                                <div class="w-10 h-10 bg-red-500/10 rounded-xl flex items-center justify-center text-red-500"><i class="fas fa-tv"></i></div>
-                                <span class="font-bold text-sm tracking-tighter">CINENEXUS</span>
-                            </a>
-                            <a href="https://github.com/shubham230523/Shopora" target="_blank" class="p-6 glass rounded-[24px] flex items-center gap-4 hover:border-emerald-500/30 transition w-[240px]">
-                                <div class="w-10 h-10 bg-emerald-500/10 rounded-xl flex items-center justify-center text-emerald-500"><i class="fas fa-shopping-cart"></i></div>
-                                <span class="font-bold text-sm tracking-tighter">SHOPORA</span>
-                            </a>
-                            <a href="https://github.com/shubham230523/FoodoraVibeCodingPractice" target="_blank" class="p-6 glass rounded-[24px] flex items-center gap-4 hover:border-orange-500/30 transition w-[240px]">
-                                <div class="w-10 h-10 bg-orange-500/10 rounded-xl flex items-center justify-center text-orange-500"><i class="fab fa-react"></i></div>
-                                <span class="font-bold text-sm tracking-tighter">FOODORAVIBE</span>
-                            </a>
-                            <a href="https://github.com/shubham230523/GolobeTripora" target="_blank" class="p-6 glass rounded-[24px] flex items-center gap-4 hover:border-sky-500/30 transition w-[240px]">
-                                <div class="w-10 h-10 bg-sky-500/10 rounded-xl flex items-center justify-center text-sky-500"><i class="fas fa-plane"></i></div>
-                                <span class="font-bold text-sm tracking-tighter">GOLOBETRIPORA</span>
-                            </a>
-                            <a href="https://github.com/shubham230523/HealthBridgeAPI" target="_blank" class="p-6 glass rounded-[24px] flex items-center gap-4 hover:border-pink-500/30 transition w-[240px]">
-                                <div class="w-10 h-10 bg-pink-500/10 rounded-xl flex items-center justify-center text-pink-500"><i class="fas fa-heartbeat"></i></div>
-                                <span class="font-bold text-sm tracking-tighter">HEALTHBRIDGE</span>
-                            </a>
-                        </div>
-                        <!-- Repeated content for seamless loop -->
-                        <div class="marquee-content py-4" aria-hidden="true">
-                            <a href="https://github.com/shubham230523/KtorMQTTX" target="_blank" class="p-6 glass rounded-[24px] flex items-center gap-4 hover:border-blue-500/30 transition w-[240px]">
-                                <div class="w-10 h-10 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-500"><i class="fas fa-exchange-alt"></i></div>
-                                <span class="font-bold text-sm tracking-tighter">KTORMQTTX</span>
-                            </a>
-                            <a href="https://github.com/shubham230523/KrossShield" target="_blank" class="p-6 glass rounded-[24px] flex items-center gap-4 hover:border-yellow-500/30 transition w-[240px]">
-                                <div class="w-10 h-10 bg-yellow-500/10 rounded-xl flex items-center justify-center text-yellow-500"><i class="fas fa-shield-alt"></i></div>
-                                <span class="font-bold text-sm tracking-tighter">KROSSSHIELD</span>
-                            </a>
-                            <a href="https://github.com/shubham230523/KrossIO" target="_blank" class="p-6 glass rounded-[24px] flex items-center gap-4 hover:border-violet-500/30 transition w-[240px]">
-                                <div class="w-10 h-10 bg-violet-500/10 rounded-xl flex items-center justify-center text-violet-500"><i class="fas fa-file-import"></i></div>
-                                <span class="font-bold text-sm tracking-tighter">KROSSIO</span>
-                            </a>
-                            <a href="https://github.com/shubham230523/CineNexusAndroidTV" target="_blank" class="p-6 glass rounded-[24px] flex items-center gap-4 hover:border-red-500/30 transition w-[240px]">
-                                <div class="w-10 h-10 bg-red-500/10 rounded-xl flex items-center justify-center text-red-500"><i class="fas fa-tv"></i></div>
-                                <span class="font-bold text-sm tracking-tighter">CINENEXUS</span>
-                            </a>
-                            <a href="https://github.com/shubham230523/Shopora" target="_blank" class="p-6 glass rounded-[24px] flex items-center gap-4 hover:border-emerald-500/30 transition w-[240px]">
-                                <div class="w-10 h-10 bg-emerald-500/10 rounded-xl flex items-center justify-center text-emerald-500"><i class="fas fa-shopping-cart"></i></div>
-                                <span class="font-bold text-sm tracking-tighter">SHOPORA</span>
-                            </a>
-                            <a href="https://github.com/shubham230523/FoodoraVibeCodingPractice" target="_blank" class="p-6 glass rounded-[24px] flex items-center gap-4 hover:border-orange-500/30 transition w-[240px]">
-                                <div class="w-10 h-10 bg-orange-500/10 rounded-xl flex items-center justify-center text-orange-500"><i class="fab fa-react"></i></div>
-                                <span class="font-bold text-sm tracking-tighter">FOODORAVIBE</span>
-                            </a>
-                            <a href="https://github.com/shubham230523/GolobeTripora" target="_blank" class="p-6 glass rounded-[24px] flex items-center gap-4 hover:border-sky-500/30 transition w-[240px]">
-                                <div class="w-10 h-10 bg-sky-500/10 rounded-xl flex items-center justify-center text-sky-500"><i class="fas fa-plane"></i></div>
-                                <span class="font-bold text-sm tracking-tighter">GOLOBETRIPORA</span>
-                            </a>
-                            <a href="https://github.com/shubham230523/HealthBridgeAPI" target="_blank" class="p-6 glass rounded-[24px] flex items-center gap-4 hover:border-pink-500/30 transition w-[240px]">
-                                <div class="w-10 h-10 bg-pink-500/10 rounded-xl flex items-center justify-center text-pink-500"><i class="fas fa-heartbeat"></i></div>
-                                <span class="font-bold text-sm tracking-tighter">HEALTHBRIDGE</span>
-                            </a>
+                        <div class="flex flex-wrap gap-2 pt-2">
+                            <span class="tech-pill">Flutter</span>
+                            <span class="tech-pill">React Native</span>
+                            <span class="tech-pill">KMP</span>
+                            <span class="tech-pill">Compose Multiplatform</span>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer class="pt-8 pb-16 px-6 border-t border-white/5">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-            <div>
-                <div class="flex items-center gap-2 mb-4">
-                    <div class="w-6 h-6 bg-blue-600 rounded flex items-center justify-center font-bold text-xs">S</div>
-                    <span class="font-bold tracking-tight mono">SHUBHAM.DEV</span>
+        <!-- FEATURED CASE STUDIES -->
+        <section id="featured" class="py-20 px-6 border-t border-ivory/10 bg-surface/30">
+            <div class="max-w-7xl mx-auto space-y-16">
+
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                    <div>
+                        <span class="mono text-xs text-lime uppercase tracking-widest block mb-2">03 // SELECTED CASE STUDIES</span>
+                        <h2 class="font-editorial text-4xl md:text-5xl font-bold text-ivory">Featured Engineering</h2>
+                    </div>
+                    <p class="text-ivory-muted max-w-md text-sm">
+                        Detailed breakdowns of my flagship open-source platforms and architectures: Kindle, Memora, Loom, Flint, and ApplyAI.
+                    </p>
                 </div>
-                <p class="text-gray-500 text-sm">&copy; 2026 Crafted with precision and AI assistance.</p>
+
+                <div class="space-y-12">
+
+                    <!-- CASE STUDY 1: KINDLE -->
+                    <article class="editorial-card p-8 sm:p-10 rounded-sm space-y-8 border-l-4 border-l-lime">
+                        <div class="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-ivory/10">
+                            <div class="space-y-1">
+                                <div class="mono text-xs text-lime uppercase tracking-widest">CASE STUDY 01 // SOFTWARE ALCHEMY PLATFORM</div>
+                                <h3 class="font-editorial text-3xl sm:text-4xl font-bold text-ivory">Kindle</h3>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="pill-badge text-lime">OPEN SOURCE</span>
+                                <a href="https://github.com/shubham230523/kindle" target="_blank" rel="noopener noreferrer" class="px-4 py-2 border border-ivory/20 text-ivory hover:border-lime hover:text-lime text-xs font-mono rounded-sm transition-colors flex items-center gap-2">
+                                    <i class="fab fa-github"></i> VIEW REPO ↗
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="grid lg:grid-cols-12 gap-8 items-center">
+                            <div class="lg:col-span-7 space-y-6 text-sm text-ivory-muted leading-relaxed">
+                                <div>
+                                    <h4 class="mono text-xs text-ivory uppercase font-bold mb-2">WHAT IT IS</h4>
+                                    <p>An end-to-end agentic workflow platform that distills abstract human ideas into buildable, multi-platform applications—from system architecture design to self-healing code generation.</p>
+                                </div>
+                                <div>
+                                    <h4 class="mono text-xs text-ivory uppercase font-bold mb-2">KEY ENGINEERING HIGHLIGHTS</h4>
+                                    <ul class="list-disc list-inside space-y-1.5 text-xs">
+                                        <li>Architected multi-agent orchestration loop using LangGraph and OpenRouter API for parallel code generation.</li>
+                                        <li>Built a responsive cross-platform client with Flutter backed by PostgreSQL and Supabase.</li>
+                                        <li>Integrated automated static analysis & self-repair loops for generated software artifacts.</li>
+                                    </ul>
+                                </div>
+                                <div class="flex flex-wrap gap-2 pt-2">
+                                    <span class="tech-pill">Flutter</span>
+                                    <span class="tech-pill">PostgreSQL</span>
+                                    <span class="tech-pill">LangGraph</span>
+                                    <span class="tech-pill">OpenRouter</span>
+                                    <span class="tech-pill">Agentic Workflow</span>
+                                </div>
+                            </div>
+
+                            <div class="lg:col-span-5 bg-ink p-6 rounded-sm border border-ivory/10 mono text-xs space-y-3">
+                                <div class="text-ivory-muted pb-2 border-b border-ivory/10 flex justify-between">
+                                    <span>MULTI-AGENT PIPELINE</span>
+                                    <span class="text-lime font-bold">Kindle Core</span>
+                                </div>
+                                <div class="space-y-2 text-[11px]">
+                                    <div class="p-2.5 bg-surface rounded border border-ivory/10 flex items-center gap-2.5">
+                                        <span class="w-5 h-5 rounded bg-ivory/10 text-ivory text-[10px] font-bold flex items-center justify-center shrink-0">01</span>
+                                        <span class="text-ivory font-medium">Input: Product Idea Prompt</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 pl-3 text-[10px] text-lime font-bold">
+                                        <i class="fas fa-arrow-down text-[9px]"></i>
+                                        <span>Architecture Agent (LangGraph)</span>
+                                    </div>
+                                    <div class="p-2.5 bg-surface rounded border border-lime/30 bg-lime/5 text-lime flex items-center gap-2.5">
+                                        <span class="w-5 h-5 rounded bg-lime/20 text-lime text-[10px] font-bold flex items-center justify-center shrink-0">02</span>
+                                        <span class="font-medium">Code Synthesizer & OpenRouter LLM</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 pl-3 text-[10px] text-lime font-bold">
+                                        <i class="fas fa-arrow-down text-[9px]"></i>
+                                        <span>Self-Healing Repair Loop</span>
+                                    </div>
+                                    <div class="p-2.5 bg-surface rounded border border-ivory/10 flex items-center gap-2.5">
+                                        <span class="w-5 h-5 rounded bg-ivory/10 text-ivory text-[10px] font-bold flex items-center justify-center shrink-0">03</span>
+                                        <span class="text-ivory font-medium">Buildable Multi-Platform Artifact</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- CASE STUDY 2: MEMORA -->
+                    <article class="editorial-card p-8 sm:p-10 rounded-sm space-y-8 border-l-4 border-l-cobalt">
+                        <div class="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-ivory/10">
+                            <div class="space-y-1">
+                                <div class="mono text-xs text-cobalt uppercase tracking-widest">CASE STUDY 02 // LONG-TERM RAG MEMORY ENGINE</div>
+                                <h3 class="font-editorial text-3xl sm:text-4xl font-bold text-ivory">Memora</h3>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="pill-badge text-cobalt">OPEN SOURCE</span>
+                                <a href="https://github.com/shubham230523/Memora" target="_blank" rel="noopener noreferrer" class="px-4 py-2 border border-ivory/20 text-ivory hover:border-cobalt hover:text-cobalt text-xs font-mono rounded-sm transition-colors flex items-center gap-2">
+                                    <i class="fab fa-github"></i> VIEW REPO ↗
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="grid lg:grid-cols-12 gap-8 items-center">
+                            <div class="lg:col-span-7 space-y-6 text-sm text-ivory-muted leading-relaxed">
+                                <div>
+                                    <h4 class="mono text-xs text-ivory uppercase font-bold mb-2">WHAT IT IS</h4>
+                                    <p>Conversational AI platform with persistent long-term memory. Features memory isolation, vector database indexing, and real-time semantic search for personalized persistent context across sessions.</p>
+                                </div>
+                                <div>
+                                    <h4 class="mono text-xs text-ivory uppercase font-bold mb-2">KEY ENGINEERING HIGHLIGHTS</h4>
+                                    <ul class="list-disc list-inside space-y-1.5 text-xs">
+                                        <li>Built high-speed vector embedding index with cosine similarity search for instant memory retrieval.</li>
+                                        <li>Hybrid inference routing: On-device model execution via Ollama + Cloud LLM via OpenRouter.</li>
+                                        <li>React Native frontend with encrypted local SQLite vector caching for offline privacy.</li>
+                                    </ul>
+                                </div>
+                                <div class="flex flex-wrap gap-2 pt-2">
+                                    <span class="tech-pill-cobalt">React Native</span>
+                                    <span class="tech-pill-cobalt">Vector Database</span>
+                                    <span class="tech-pill-cobalt">RAG Pipeline</span>
+                                    <span class="tech-pill-cobalt">Ollama</span>
+                                    <span class="tech-pill-cobalt">On-Device AI</span>
+                                </div>
+                            </div>
+
+                            <div class="lg:col-span-5 bg-ink p-6 rounded-sm border border-ivory/10 mono text-xs space-y-3">
+                                <div class="text-ivory-muted pb-2 border-b border-ivory/10 flex justify-between">
+                                    <span>RAG MEMORY ARCHITECTURE</span>
+                                    <span class="text-cobalt font-bold">Memora Core</span>
+                                </div>
+                                <div class="space-y-2 text-[11px]">
+                                    <div class="p-2.5 bg-surface rounded border border-ivory/10 flex items-center gap-2.5">
+                                        <span class="w-5 h-5 rounded bg-ivory/10 text-ivory text-[10px] font-bold flex items-center justify-center shrink-0">01</span>
+                                        <span class="text-ivory font-medium">User Context & Query Input</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 pl-3 text-[10px] text-cobalt font-bold">
+                                        <i class="fas fa-arrow-down text-[9px]"></i>
+                                        <span>Semantic Vector Index Search</span>
+                                    </div>
+                                    <div class="p-2.5 bg-surface rounded border border-cobalt/30 bg-cobalt/5 text-cobalt flex items-center gap-2.5">
+                                        <span class="w-5 h-5 rounded bg-cobalt/20 text-cobalt text-[10px] font-bold flex items-center justify-center shrink-0">02</span>
+                                        <span class="font-medium">Vector DB & Context Retrieval Engine</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 pl-3 text-[10px] text-cobalt font-bold">
+                                        <i class="fas fa-arrow-down text-[9px]"></i>
+                                        <span>Relevant Prompt Context Injection</span>
+                                    </div>
+                                    <div class="p-2.5 bg-surface rounded border border-ivory/10 flex items-center gap-2.5">
+                                        <span class="w-5 h-5 rounded bg-ivory/10 text-ivory text-[10px] font-bold flex items-center justify-center shrink-0">03</span>
+                                        <span class="text-ivory font-medium">Inference Response (Ollama / Gemini)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- CASE STUDY 3: LOOM -->
+                    <article class="editorial-card p-8 sm:p-10 rounded-sm space-y-8 border-l-4 border-l-coral">
+                        <div class="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-ivory/10">
+                            <div class="space-y-1">
+                                <div class="mono text-xs text-coral uppercase tracking-widest">CASE STUDY 03 // OPEN-SOURCE CONTRIBUTION AGENT</div>
+                                <h3 class="font-editorial text-3xl sm:text-4xl font-bold text-ivory">Loom</h3>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="pill-badge text-coral">OPEN SOURCE</span>
+                                <a href="https://github.com/shubham230523/Loom" target="_blank" rel="noopener noreferrer" class="px-4 py-2 border border-ivory/20 text-ivory hover:border-coral hover:text-coral text-xs font-mono rounded-sm transition-colors flex items-center gap-2">
+                                    <i class="fab fa-github"></i> VIEW REPO ↗
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="grid lg:grid-cols-12 gap-8 items-center">
+                            <div class="lg:col-span-7 space-y-6 text-sm text-ivory-muted leading-relaxed">
+                                <div>
+                                    <h4 class="mono text-xs text-ivory uppercase font-bold mb-2">WHAT IT IS</h4>
+                                    <p>An open-source contribution agent. A human-in-the-loop multi-agent system that analyzes unfamiliar codebases, plans feature implementations, and automates pull-request creation.</p>
+                                </div>
+                                <div>
+                                    <h4 class="mono text-xs text-ivory uppercase font-bold mb-2">KEY ENGINEERING HIGHLIGHTS</h4>
+                                    <ul class="list-disc list-inside space-y-1.5 text-xs">
+                                        <li>Architected stateful multi-agent DAG in Python using LangGraph to analyze git ASTs.</li>
+                                        <li>Containerized execution environment in Docker for sandboxed test execution & PR validation.</li>
+                                        <li>React Native mobile dashboard to monitor live PR generation and approve human-in-the-loop steps.</li>
+                                    </ul>
+                                </div>
+                                <div class="flex flex-wrap gap-2 pt-2">
+                                    <span class="tech-pill">React Native</span>
+                                    <span class="tech-pill">Python</span>
+                                    <span class="tech-pill">LangGraph</span>
+                                    <span class="tech-pill">Docker</span>
+                                    <span class="tech-pill">OpenRouter</span>
+                                </div>
+                            </div>
+
+                            <div class="lg:col-span-5 bg-ink p-6 rounded-sm border border-ivory/10 mono text-xs space-y-3">
+                                <div class="text-ivory-muted pb-2 border-b border-ivory/10 flex justify-between">
+                                    <span>MULTI-AGENT WORKFLOW</span>
+                                    <span class="text-coral font-bold">Loom Agent</span>
+                                </div>
+                                <div class="space-y-2 text-[11px]">
+                                    <div class="p-2.5 bg-surface rounded border border-ivory/10 flex items-center gap-2.5">
+                                        <span class="w-5 h-5 rounded bg-ivory/10 text-ivory text-[10px] font-bold flex items-center justify-center shrink-0">01</span>
+                                        <span class="text-ivory font-medium">GitHub Issue / Feature Specification</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 pl-3 text-[10px] text-coral font-bold">
+                                        <i class="fas fa-arrow-down text-[9px]"></i>
+                                        <span>LangGraph Code & AST Analysis</span>
+                                    </div>
+                                    <div class="p-2.5 bg-surface rounded border border-coral/30 bg-coral/5 text-coral flex items-center gap-2.5">
+                                        <span class="w-5 h-5 rounded bg-coral/20 text-coral text-[10px] font-bold flex items-center justify-center shrink-0">02</span>
+                                        <span class="font-medium">Sandboxed Execution (Docker Container)</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 pl-3 text-[10px] text-coral font-bold">
+                                        <i class="fas fa-arrow-down text-[9px]"></i>
+                                        <span>Human-in-the-Loop Approval</span>
+                                    </div>
+                                    <div class="p-2.5 bg-surface rounded border border-ivory/10 flex items-center gap-2.5">
+                                        <span class="w-5 h-5 rounded bg-ivory/10 text-ivory text-[10px] font-bold flex items-center justify-center shrink-0">03</span>
+                                        <span class="text-ivory font-medium">Automated GitHub Pull Request</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- CASE STUDY 4: FLINT -->
+                    <article class="editorial-card p-8 sm:p-10 rounded-sm space-y-8 border-l-4 border-l-lime">
+                        <div class="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-ivory/10">
+                            <div class="space-y-1">
+                                <div class="mono text-xs text-lime uppercase tracking-widest">CASE STUDY 04 // CROSS-PLATFORM AI SYSTEM</div>
+                                <h3 class="font-editorial text-3xl sm:text-4xl font-bold text-ivory">Flint</h3>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="pill-badge text-lime">IN DEV</span>
+                                <a href="https://github.com/shubham230523/Flint" target="_blank" rel="noopener noreferrer" class="px-4 py-2 border border-ivory/20 text-ivory hover:border-lime hover:text-lime text-xs font-mono rounded-sm transition-colors flex items-center gap-2">
+                                    <i class="fab fa-github"></i> VIEW REPO ↗
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="grid lg:grid-cols-12 gap-8 items-center">
+                            <div class="lg:col-span-7 space-y-6 text-sm text-ivory-muted leading-relaxed">
+                                <div>
+                                    <h4 class="mono text-xs text-ivory uppercase font-bold mb-2">WHAT IT IS</h4>
+                                    <p>Cross-Platform AI Content Operating System built with Compose Multiplatform. Transforms single raw ideas or voice media into synchronized multi-platform campaigns matching creator style guidelines.</p>
+                                </div>
+                                <div>
+                                    <h4 class="mono text-xs text-ivory uppercase font-bold mb-2">KEY ENGINEERING HIGHLIGHTS</h4>
+                                    <ul class="list-disc list-inside space-y-1.5 text-xs">
+                                        <li>Architected shared desktop and mobile UI using Compose Multiplatform (CMP) and KMP.</li>
+                                        <li>Implemented custom creator style vector embedding matcher using Firebase & Ktor backend.</li>
+                                        <li>Multi-LLM task distribution: Gemini for structuring, Claude for stylistic prose, GPT for thread formatting.</li>
+                                    </ul>
+                                </div>
+                                <div class="flex flex-wrap gap-2 pt-2">
+                                    <span class="tech-pill">Compose Multiplatform</span>
+                                    <span class="tech-pill">KMP</span>
+                                    <span class="tech-pill">Ktor</span>
+                                    <span class="tech-pill">Firebase</span>
+                                    <span class="tech-pill">AI Router</span>
+                                </div>
+                            </div>
+
+                            <div class="lg:col-span-5 bg-ink p-6 rounded-sm border border-ivory/10 mono text-xs space-y-3">
+                                <div class="text-ivory-muted pb-2 border-b border-ivory/10 flex justify-between">
+                                    <span>MULTI-TARGET ARCHITECTURE</span>
+                                    <span class="text-lime font-bold">Flint Core</span>
+                                </div>
+                                <div class="space-y-2 text-[11px]">
+                                    <div class="p-2.5 bg-surface rounded border border-ivory/10 flex items-center gap-2.5">
+                                        <span class="w-5 h-5 rounded bg-ivory/10 text-ivory text-[10px] font-bold flex items-center justify-center shrink-0">01</span>
+                                        <span class="text-ivory font-medium">Raw Idea / Voice Media Input</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 pl-3 text-[10px] text-lime font-bold">
+                                        <i class="fas fa-arrow-down text-[9px]"></i>
+                                        <span>Shared CMP ViewModel Pipeline</span>
+                                    </div>
+                                    <div class="p-2.5 bg-surface rounded border border-lime/30 bg-lime/5 text-lime flex items-center gap-2.5">
+                                        <span class="w-5 h-5 rounded bg-lime/20 text-lime text-[10px] font-bold flex items-center justify-center shrink-0">02</span>
+                                        <span class="font-medium">Creator DNA Matcher & Prompt Engine</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 pl-3 text-[10px] text-lime font-bold">
+                                        <i class="fas fa-arrow-down text-[9px]"></i>
+                                        <span>Parallel Multi-LLM Execution</span>
+                                    </div>
+                                    <div class="p-2.5 bg-surface rounded border border-ivory/10 flex items-center gap-2.5">
+                                        <span class="w-5 h-5 rounded bg-ivory/10 text-ivory text-[10px] font-bold flex items-center justify-center shrink-0">03</span>
+                                        <span class="text-ivory font-medium">YouTube / X / Newsletter Outputs</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- CASE STUDY 5: APPLY AI -->
+                    <article class="editorial-card p-8 sm:p-10 rounded-sm space-y-8 border-l-4 border-l-cobalt">
+                        <div class="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-ivory/10">
+                            <div class="space-y-1">
+                                <div class="mono text-xs text-cobalt uppercase tracking-widest">CASE STUDY 05 // AGENTIC AI AUTOMATION</div>
+                                <h3 class="font-editorial text-3xl sm:text-4xl font-bold text-ivory">ApplyAI</h3>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="pill-badge text-cobalt">IN ACTIVE DEV</span>
+                                <a href="https://github.com/shubham230523/ApplyAI" target="_blank" rel="noopener noreferrer" class="px-4 py-2 border border-ivory/20 text-ivory hover:border-cobalt hover:text-cobalt text-xs font-mono rounded-sm transition-colors flex items-center gap-2">
+                                    <i class="fab fa-github"></i> VIEW REPO ↗
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="grid lg:grid-cols-12 gap-8 items-center">
+                            <div class="lg:col-span-7 space-y-6 text-sm text-ivory-muted leading-relaxed">
+                                <div>
+                                    <h4 class="mono text-xs text-ivory uppercase font-bold mb-2">WHAT IT IS</h4>
+                                    <p>An autonomous job application automation platform that orchestrates intelligent resume tailoring, multimodal document parsing, and auto-fill engines across complex job portals using agentic LLM routing.</p>
+                                </div>
+                                <div>
+                                    <h4 class="mono text-xs text-ivory uppercase font-bold mb-2">KEY ENGINEERING HIGHLIGHTS</h4>
+                                    <ul class="list-disc list-inside space-y-1.5 text-xs">
+                                        <li>Built multi-step agentic decision loops using Gemini API & OpenRouter for context-aware resume alignment.</li>
+                                        <li>Integrated Supabase for encrypted user state storage and resume vector embeddings.</li>
+                                        <li>Designed resilient DOM/UI inspection mechanisms that handle dynamic form updates automatically.</li>
+                                    </ul>
+                                </div>
+                                <div class="flex flex-wrap gap-2 pt-2">
+                                    <span class="tech-pill-cobalt">Gemini API</span>
+                                    <span class="tech-pill-cobalt">OpenRouter</span>
+                                    <span class="tech-pill-cobalt">Supabase</span>
+                                    <span class="tech-pill-cobalt">Agentic Workflow</span>
+                                    <span class="tech-pill-cobalt">TypeScript</span>
+                                </div>
+                            </div>
+
+                            <div class="lg:col-span-5 bg-ink p-6 rounded-sm border border-ivory/10 mono text-xs space-y-3">
+                                <div class="text-ivory-muted pb-2 border-b border-ivory/10 flex justify-between">
+                                    <span>SYSTEM ARCHITECTURE</span>
+                                    <span class="text-cobalt font-bold">ApplyAI Core</span>
+                                </div>
+                                <div class="space-y-2 text-[11px]">
+                                    <div class="p-2.5 bg-surface rounded border border-ivory/10 flex items-center gap-2.5">
+                                        <span class="w-5 h-5 rounded bg-ivory/10 text-ivory text-[10px] font-bold flex items-center justify-center shrink-0">01</span>
+                                        <span class="text-ivory font-medium">Input: Resume (PDF) + Job Portal URL</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 pl-3 text-[10px] text-cobalt font-bold">
+                                        <i class="fas fa-arrow-down text-[9px]"></i>
+                                        <span>Multimodal Document Extraction</span>
+                                    </div>
+                                    <div class="p-2.5 bg-surface rounded border border-cobalt/30 bg-cobalt/5 text-cobalt flex items-center gap-2.5">
+                                        <span class="w-5 h-5 rounded bg-cobalt/20 text-cobalt text-[10px] font-bold flex items-center justify-center shrink-0">02</span>
+                                        <span class="font-medium">Agentic Decision Engine (Gemini API)</span>
+                                    </div>
+                                    <div class="flex items-center gap-2 pl-3 text-[10px] text-cobalt font-bold">
+                                        <i class="fas fa-arrow-down text-[9px]"></i>
+                                        <span>Structured Form Payload Generation</span>
+                                    </div>
+                                    <div class="p-2.5 bg-surface rounded border border-ivory/10 flex items-center gap-2.5">
+                                        <span class="w-5 h-5 rounded bg-ivory/10 text-ivory text-[10px] font-bold flex items-center justify-center shrink-0">03</span>
+                                        <span class="text-ivory font-medium">Automated Form Auto-Fill & Validation</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
             </div>
+        </section>
 
-            <div class="flex gap-6">
-                <a href="https://github.com/shubham230523" target="_blank" class="text-gray-400 hover:text-white transition text-xl"><i class="fab fa-github"></i></a>
-                <a href="https://in.linkedin.com/in/shubham-thorat-9489671b2" target="_blank" class="text-gray-400 hover:text-white transition text-xl"><i class="fab fa-linkedin"></i></a>
+        <!-- INTERACTIVE ENGINEERING CONSTELLATION / SYSTEM MAP -->
+        <section id="constellation" class="py-20 px-6 border-t border-ivory/10">
+            <div class="max-w-7xl mx-auto space-y-12">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                    <div>
+                        <span class="mono text-xs text-lime uppercase tracking-widest block mb-2">04 // INTERACTIVE SYSTEM MAP</span>
+                        <h2 class="font-editorial text-4xl md:text-5xl font-bold text-ivory">Project Constellation</h2>
+                    </div>
+                    <p class="text-ivory-muted max-w-md text-sm">
+                        Hover or click ecosystem nodes to inspect how projects interconnect across technical domains.
+                    </p>
+                </div>
+
+                <!-- Constellation Interactive Interactive Map Widget -->
+                <div class="editorial-card p-6 sm:p-8 rounded-sm space-y-6">
+                    <div class="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-ivory/10">
+                        <div class="flex items-center gap-4 mono text-xs">
+                            <span class="text-ivory font-bold">CATEGORIES:</span>
+                            <span class="text-lime">● Mobile</span>
+                            <span class="text-cobalt">● AI / Agentic</span>
+                            <span class="text-coral">● Dev Tools</span>
+                        </div>
+                        <div class="mono text-xs text-ivory-muted">Interactive Ecosystem Map</div>
+                    </div>
+
+                    <!-- Visual Node Canvas or Interactive Map Grid -->
+                    <div class="relative min-h-[380px] bg-ink rounded-sm border border-ivory/10 p-4 sm:p-6 flex items-center justify-center overflow-hidden">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 w-full relative z-10" id="constellationNodeGrid">
+                            <!-- JS injects nodes dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- Selected Node Inspector Modal / Drawer -->
+                    <div id="nodeInspectorCard" class="bg-surface p-6 rounded-sm border border-lime/30 hidden space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span id="inspectorTitle" class="font-editorial text-xl font-bold text-lime">Project Title</span>
+                            <span id="inspectorCategory" class="pill-badge text-ivory">Category</span>
+                        </div>
+                        <p id="inspectorDesc" class="text-sm text-ivory-muted">Project description will appear here.</p>
+                        <div class="flex items-center justify-between pt-2 border-t border-ivory/10">
+                            <div id="inspectorTech" class="flex flex-wrap gap-2"></div>
+                            <a id="inspectorLink" href="#" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-lime text-ink font-mono font-bold text-xs rounded-sm hover:bg-white transition-colors">
+                                INSPECT REPO ↗
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <a href="#home" class="w-12 h-12 glass rounded-2xl flex items-center justify-center text-gray-400 hover:text-blue-500 transition">
-                <i class="fas fa-arrow-up"></i>
-            </a>
-        </div>
-    </footer>
+        <!-- HOW I THINK (ENGINEERING PRINCIPLES) -->
+        <section class="py-20 px-6 border-t border-ivory/10 bg-surface/30">
+            <div class="max-w-7xl mx-auto space-y-12">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                    <div>
+                        <span class="mono text-xs text-lime uppercase tracking-widest block mb-2">ENGINEERING PRINCIPLES</span>
+                        <h2 class="font-editorial text-4xl md:text-5xl font-bold text-ivory">How I Think & Build</h2>
+                    </div>
+                    <p class="text-ivory-muted max-w-md text-sm">
+                        Core beliefs guiding every technical decision, pull request, and system architecture.
+                    </p>
+                </div>
 
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="editorial-card p-6 rounded-sm space-y-3">
+                        <div class="mono text-xs text-lime">01 // PLATFORM FIRST</div>
+                        <h3 class="font-editorial text-xl font-bold text-ivory">Respect Device Constraints</h3>
+                        <p class="text-xs text-ivory-muted leading-relaxed">
+                            Battery, frame budget, and memory limits are non-negotiable. Software must feel native, snappy, and light on system resources.
+                        </p>
+                    </div>
+
+                    <div class="editorial-card p-6 rounded-sm space-y-3">
+                        <div class="mono text-xs text-cobalt">02 // ARCHITECTURE</div>
+                        <h3 class="font-editorial text-xl font-bold text-ivory">Share Business Logic</h3>
+                        <p class="text-xs text-ivory-muted leading-relaxed">
+                            Abstract domain logic cleanly across platforms using KMP & CMP, while leaving UI native where native performance matters most.
+                        </p>
+                    </div>
+
+                    <div class="editorial-card p-6 rounded-sm space-y-3">
+                        <div class="mono text-xs text-coral">03 // AI SYSTEMS</div>
+                        <h3 class="font-editorial text-xl font-bold text-ivory">AI as Executable Tools</h3>
+                        <p class="text-xs text-ivory-muted leading-relaxed">
+                            LLMs are reasoning engines, not novelty chatbots. Integrate them into deterministic pipelines with explicit tool calling.
+                        </p>
+                    </div>
+
+                    <div class="editorial-card p-6 rounded-sm space-y-3">
+                        <div class="mono text-xs text-lime">04 // OBSERVABILITY</div>
+                        <h3 class="font-editorial text-xl font-bold text-ivory">Observability by Default</h3>
+                        <p class="text-xs text-ivory-muted leading-relaxed">
+                            If you cannot inspect network requests or state transitions in real time, you cannot reliably scale or debug production apps.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ENGINEERING EVOLUTION TIMELINE -->
+        <section class="py-20 px-6 border-t border-ivory/10">
+            <div class="max-w-7xl mx-auto space-y-12">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                    <div>
+                        <span class="mono text-xs text-lime uppercase tracking-widest block mb-2">PROFESSIONAL EVOLUTION</span>
+                        <h2 class="font-editorial text-4xl md:text-5xl font-bold text-ivory">Technical Evolution</h2>
+                    </div>
+                    <p class="text-ivory-muted max-w-md text-sm">
+                        3 years of continuous engineering expansion across platforms and emerging paradigms.
+                    </p>
+                </div>
+
+                <div class="relative border-l border-ivory/10 pl-6 sm:pl-10 space-y-12 max-w-4xl">
+                    <!-- Step 1 -->
+                    <div class="relative space-y-2">
+                        <span class="absolute -left-[31px] sm:-left-[47px] top-1 w-4 h-4 rounded-full bg-lime border-4 border-ink"></span>
+                        <div class="mono text-xs text-lime uppercase font-bold">2023 — 2024 // NATIVE MOBILE & CROSS-PLATFORM</div>
+                        <h3 class="font-editorial text-2xl font-bold text-ivory">Native Android, Flutter & React Native</h3>
+                        <p class="text-sm text-ivory-muted leading-relaxed">
+                            Mastered Android Framework internals, Jetpack Compose, Flutter, React Native, and strict Clean Architecture (MVI/MVVM) for enterprise mobile builds.
+                        </p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative space-y-2">
+                        <span class="absolute -left-[31px] sm:-left-[47px] top-1 w-4 h-4 rounded-full bg-cobalt border-4 border-ink"></span>
+                        <div class="mono text-xs text-cobalt uppercase font-bold">2024 — 2025 // KMP, CMP & INFRASTRUCTURE</div>
+                        <h3 class="font-editorial text-2xl font-bold text-ivory">Kotlin Multiplatform & Compose Multiplatform</h3>
+                        <p class="text-sm text-ivory-muted leading-relaxed">
+                            Pioneered single-source multi-target architectures across Android, iOS, Desktop, and Web using KMP and CMP, creating developer tools like TraceFlow.
+                        </p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative space-y-2">
+                        <span class="absolute -left-[31px] sm:-left-[47px] top-1 w-4 h-4 rounded-full bg-coral border-4 border-ink"></span>
+                        <div class="mono text-xs text-coral uppercase font-bold">2025 — 2026 // AGENTIC AI & RAG PIPELINES</div>
+                        <h3 class="font-editorial text-2xl font-bold text-ivory">LangGraph, Vector DBs & On-Device Models</h3>
+                        <p class="text-sm text-ivory-muted leading-relaxed">
+                            Pioneered multi-agent AI systems, RAG vector pipelines, and on-device Ollama/Gemma model integrations across platforms like Kindle, Memora, Loom, and ApplyAI.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TECHNICAL STACK (GROUPED MATRIX, NO FAKE PERCENTAGES) -->
+        <section id="stack" class="py-20 px-6 border-t border-ivory/10 bg-surface/30">
+            <div class="max-w-7xl mx-auto space-y-12">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                    <div>
+                        <span class="mono text-xs text-lime uppercase tracking-widest block mb-2">05 // TECHNICAL MATRIX</span>
+                        <h2 class="font-editorial text-4xl md:text-5xl font-bold text-ivory">Skills & Technologies</h2>
+                    </div>
+                    <p class="text-ivory-muted max-w-md text-sm">
+                        Verified software engineering tools, frameworks, and architectural proficiencies.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                    <!-- Group 1 -->
+                    <div class="editorial-card p-6 rounded-sm space-y-4">
+                        <div class="flex items-center gap-2 border-b border-ivory/10 pb-3">
+                            <i class="fab fa-android text-lime text-lg"></i>
+                            <h3 class="font-editorial text-lg font-bold text-ivory">Android & Native</h3>
+                        </div>
+                        <ul class="space-y-2 text-xs mono text-ivory-muted">
+                            <li class="flex items-center justify-between"><span class="text-ivory">Android SDK</span><span class="text-lime">EXPERT</span></li>
+                            <li class="flex items-center justify-between"><span class="text-ivory">Kotlin / Coroutines</span><span class="text-lime">EXPERT</span></li>
+                            <li class="flex items-center justify-between"><span class="text-ivory">Jetpack Compose</span><span class="text-lime">ADVANCED</span></li>
+                            <li class="flex items-center justify-between"><span class="text-ivory">Android Framework</span><span class="text-lime">ADVANCED</span></li>
+                            <li class="flex items-center justify-between"><span class="text-ivory">Room / SQLite</span><span class="text-lime">ADVANCED</span></li>
+                            <li class="flex items-center justify-between"><span class="text-ivory">Swift / iOS</span><span class="text-ivory-muted">PROFICIENT</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Group 2 -->
+                    <div class="editorial-card p-6 rounded-sm space-y-4">
+                        <div class="flex items-center gap-2 border-b border-ivory/10 pb-3">
+                            <i class="fas fa-cubes text-cobalt text-lg"></i>
+                            <h3 class="font-editorial text-lg font-bold text-ivory">Cross-Platform Mastery</h3>
+                        </div>
+                        <ul class="space-y-2 text-xs mono text-ivory-muted">
+                            <li class="flex items-center justify-between"><span class="text-ivory">Kotlin Multiplatform (KMP)</span><span class="text-cobalt">EXPERT</span></li>
+                            <li class="flex items-center justify-between"><span class="text-ivory">Compose Multiplatform (CMP)</span><span class="text-cobalt">EXPERT</span></li>
+                            <li class="flex items-center justify-between"><span class="text-ivory">Flutter</span><span class="text-cobalt">EXPERT</span></li>
+                            <li class="flex items-center justify-between"><span class="text-ivory">React Native / Expo</span><span class="text-cobalt">ADVANCED</span></li>
+                            <li class="flex items-center justify-between"><span class="text-ivory">TypeScript</span><span class="text-cobalt">ADVANCED</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Group 3 -->
+                    <div class="editorial-card p-6 rounded-sm space-y-4">
+                        <div class="flex items-center gap-2 border-b border-ivory/10 pb-3">
+                            <i class="fas fa-brain text-coral text-lg"></i>
+                            <h3 class="font-editorial text-lg font-bold text-ivory">AI & Agentic Systems</h3>
+                        </div>
+                        <ul class="space-y-2 text-xs mono text-ivory-muted">
+                            <li class="flex items-center justify-between"><span class="text-ivory">RAG Architecture</span><span class="text-coral">ADVANCED</span></li>
+                            <li class="flex items-center justify-between"><span class="text-ivory">LangGraph / Multi-Agent</span><span class="text-coral">ADVANCED</span></li>
+                            <li class="flex items-center justify-between"><span class="text-ivory">Vector Databases</span><span class="text-coral">ADVANCED</span></li>
+                            <li class="flex items-center justify-between"><span class="text-ivory">Ollama / Gemma On-Device</span><span class="text-coral">ADVANCED</span></li>
+                            <li class="flex items-center justify-between"><span class="text-ivory">OpenRouter / LLM Routing</span><span class="text-coral">ADVANCED</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Group 4 -->
+                    <div class="editorial-card p-6 rounded-sm space-y-4">
+                        <div class="flex items-center gap-2 border-b border-ivory/10 pb-3">
+                            <i class="fas fa-server text-lime text-lg"></i>
+                            <h3 class="font-editorial text-lg font-bold text-ivory">Backend & Infrastructure</h3>
+                        </div>
+                        <ul class="space-y-2 text-xs mono text-ivory-muted">
+                            <li class="flex items-center justify-between"><span class="text-ivory">Ktor Framework</span><span class="text-lime">ADVANCED</span></li>
+                            <li class="flex items-center justify-between"><span class="text-ivory">Node.js / Express</span><span class="text-lime">ADVANCED</span></li>
+                            <li class="flex items-center justify-between"><span class="text-ivory">Supabase / PostgreSQL</span><span class="text-lime">ADVANCED</span></li>
+                            <li class="flex items-center justify-between"><span class="text-ivory">Firebase Services</span><span class="text-lime">ADVANCED</span></li>
+                            <li class="flex items-center justify-between"><span class="text-ivory">Rust (UniFFI)</span><span class="text-ivory-muted">PRACTITIONER</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Group 5 -->
+                    <div class="editorial-card p-6 rounded-sm space-y-4">
+                        <div class="flex items-center gap-2 border-b border-ivory/10 pb-3">
+                            <i class="fas fa-sitemap text-cobalt text-lg"></i>
+                            <h3 class="font-editorial text-lg font-bold text-ivory">Architecture & Quality</h3>
+                        </div>
+                        <ul class="space-y-2 text-xs mono text-ivory-muted">
+                            <li class="flex items-center justify-between"><span class="text-ivory">MVI / MVVM Architecture</span><span class="text-cobalt">EXPERT</span></li>
+                            <li class="flex items-center justify-between"><span class="text-ivory">Clean Architecture</span><span class="text-cobalt">EXPERT</span></li>
+                            <li class="flex items-center justify-between"><span class="text-ivory">System Design (LLD & HLD)</span><span class="text-cobalt">ADVANCED</span></li>
+                            <li class="flex items-center justify-between"><span class="text-ivory">Playwright / Appium</span><span class="text-cobalt">ADVANCED</span></li>
+                            <li class="flex items-center justify-between"><span class="text-ivory">CI/CD Pipelines</span><span class="text-cobalt">ADVANCED</span></li>
+                        </ul>
+                    </div>
+
+                    <!-- Group 6 -->
+                    <div class="editorial-card p-6 rounded-sm space-y-4">
+                        <div class="flex items-center gap-2 border-b border-ivory/10 pb-3">
+                            <i class="fas fa-graduation-cap text-coral text-lg"></i>
+                            <h3 class="font-editorial text-lg font-bold text-ivory">Certifications</h3>
+                        </div>
+                        <ul class="space-y-2 text-xs text-ivory-muted leading-snug">
+                            <li class="border-b border-ivory/5 pb-1"><span class="text-ivory font-medium block">Agentic Engineer Certification</span><span class="mono text-[10px] text-coral">MAR 2026</span></li>
+                            <li class="border-b border-ivory/5 pb-1"><span class="text-ivory font-medium block">Multi-Modular KMP Architecture</span><span class="mono text-[10px] text-coral">MAR 2026</span></li>
+                            <li class="border-b border-ivory/5 pb-1"><span class="text-ivory font-medium block">Ultimate Compose Multiplatform</span><span class="mono text-[10px] text-coral">MAR 2026</span></li>
+                            <li><span class="text-ivory font-medium block">iOS & Swift App Development</span><span class="mono text-[10px] text-coral">2025</span></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- COMPLETE FILTERABLE PROJECT ARCHIVE -->
+        <section id="archive" class="py-20 px-6 border-t border-ivory/10">
+            <div class="max-w-7xl mx-auto space-y-10">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                    <div>
+                        <span class="mono text-xs text-lime uppercase tracking-widest block mb-2">06 // COMPLETE ECOSYSTEM</span>
+                        <h2 class="font-editorial text-4xl md:text-5xl font-bold text-ivory">Project Archive</h2>
+                    </div>
+                    <p class="text-ivory-muted max-w-md text-sm">
+                        Search and filter my public repository collection of 100+ platforms, developer libraries, and experimental software.
+                    </p>
+                </div>
+
+                <!-- Filter Controls Bar -->
+                <div class="editorial-card p-4 rounded-sm flex flex-col md:flex-row items-center justify-between gap-4">
+                    <!-- Search Input -->
+                    <div class="relative w-full md:w-80">
+                        <i class="fas fa-search absolute left-3.5 top-3.5 text-ivory-muted text-xs"></i>
+                        <input id="archiveSearch" type="text" aria-label="Search projects by name or technology" placeholder="Search by name or tech stack..." class="w-full bg-ink border border-ivory/10 rounded-sm pl-9 pr-4 py-2 text-xs text-ivory placeholder-ivory-muted focus:outline-none focus:border-lime mono">
+                    </div>
+
+                    <!-- Category Pills -->
+                    <div class="flex flex-wrap items-center gap-2 w-full md:w-auto" id="archiveFilterContainer">
+                        <button class="archive-filter-btn px-3 py-1.5 text-xs mono rounded-sm border border-lime bg-lime text-ink font-bold" data-category="ALL">ALL (100+)</button>
+                        <button class="archive-filter-btn px-3 py-1.5 text-xs mono rounded-sm border border-ivory/10 text-ivory-muted hover:border-lime hover:text-lime" data-category="MOBILE">MOBILE</button>
+                        <button class="archive-filter-btn px-3 py-1.5 text-xs mono rounded-sm border border-ivory/10 text-ivory-muted hover:border-lime hover:text-lime" data-category="CROSS-PLATFORM">MULTI-TARGET</button>
+                        <button class="archive-filter-btn px-3 py-1.5 text-xs mono rounded-sm border border-ivory/10 text-ivory-muted hover:border-lime hover:text-lime" data-category="AI">AI & AGENTS</button>
+                        <button class="archive-filter-btn px-3 py-1.5 text-xs mono rounded-sm border border-ivory/10 text-ivory-muted hover:border-lime hover:text-lime" data-category="TOOLS">DEV TOOLS</button>
+                    </div>
+                </div>
+
+                <!-- Project Grid -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="archiveGrid">
+                    <!-- Project Cards rendered dynamically via JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT & FOOTER -->
+        <section id="contact" class="py-24 px-6 border-t border-ivory/10 bg-surface">
+            <div class="max-w-5xl mx-auto text-center space-y-8">
+                <span class="mono text-xs text-lime uppercase tracking-widest block">LET'S BUILD TOGETHER</span>
+
+                <h2 class="font-editorial text-4xl sm:text-6xl font-bold text-ivory leading-tight">
+                    Building a Challenging <br>
+                    <span class="text-lime">Mobile, AI, or System Project?</span>
+                </h2>
+
+                <p class="text-ivory-muted max-w-xl mx-auto text-base leading-relaxed">
+                    I am always interested in discussing complex mobile system architectures, cross-platform engineering, agentic AI products, or engineering roles.
+                </p>
+
+                <!-- Primary Action Buttons -->
+                <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
+                    <a href="https://in.linkedin.com/in/shubham-thorat-9489671b2" target="_blank" rel="noopener noreferrer" class="px-8 py-4 bg-lime text-ink font-editorial font-bold text-sm tracking-wide rounded-sm hover:bg-white transition-all flex items-center gap-3">
+                        <i class="fab fa-linkedin text-lg"></i> CONNECT ON LINKEDIN ↗
+                    </a>
+                    <a href="https://github.com/shubham230523" target="_blank" rel="noopener noreferrer" class="px-8 py-4 border border-ivory/20 text-ivory font-editorial font-bold text-sm tracking-wide rounded-sm hover:border-lime hover:text-lime transition-all flex items-center gap-3">
+                        <i class="fab fa-github text-lg"></i> VISIT GITHUB WORKSPACE ↗
+                    </a>
+                </div>
+
+                <!-- Footer Metadata -->
+                <div class="pt-16 border-t border-ivory/10 flex flex-col sm:flex-row items-center justify-between text-xs mono text-ivory-muted gap-4">
+                    <div>
+                        &copy; 2026 SHUBHAM THORAT — SOFTWARE ENGINEER
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <a href="#home" class="hover:text-lime transition-colors">BACK TO TOP ↑</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- JavaScript Data & Logic -->
     <script>
-        // Initialization
-        AOS.init({
-            duration: 1000,
-            once: true,
-            offset: 100,
-        });
-
-        // Scroll Progress
-        window.onscroll = function() {
-            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            let scrolled = (winScroll / height) * 100;
-            document.getElementById("progress-bar").style.width = scrolled + "%";
-        };
-
-        // GSAP Animations for Hero
-        gsap.to(".gradient-blur", {
-            scrollTrigger: {
-                trigger: "body",
-                start: "top top",
-                end: "bottom bottom",
-                scrub: 2
+        // Archive Project Data Collection
+        const ALL_PROJECTS = [
+            {
+                name: "Kindle",
+                category: "AI",
+                desc: "Software Alchemy Platform. End-to-end agentic workflow distilling abstract ideas into buildable, multi-platform apps.",
+                status: "OPEN SOURCE",
+                tech: ["Flutter", "PostgreSQL", "LangGraph", "OpenRouter"],
+                link: "https://github.com/shubham230523/kindle"
             },
-            rotate: 360,
-            duration: 20
+            {
+                name: "Memora",
+                category: "AI",
+                desc: "Conversational AI with Long-Term Memory. Features vector DB indexing, semantic search, and RAG persistent context.",
+                status: "OPEN SOURCE",
+                tech: ["React Native", "Vector DB", "RAG", "Ollama", "On-Device AI"],
+                link: "https://github.com/shubham230523/Memora"
+            },
+            {
+                name: "Loom",
+                category: "TOOLS",
+                desc: "Open-Source Contribution Agent. Human-in-the-loop multi-agent system analyzing codebases and automating PR creation.",
+                status: "OPEN SOURCE",
+                tech: ["React Native", "Python", "LangGraph", "Docker", "OpenRouter"],
+                link: "https://github.com/shubham230523/Loom"
+            },
+            {
+                name: "Flint",
+                category: "CROSS-PLATFORM",
+                desc: "Cross-Platform AI Content Operating System built with Compose Multiplatform for multi-channel campaign generation.",
+                status: "IN DEV",
+                tech: ["Compose Multiplatform", "KMP", "Ktor", "Firebase"],
+                link: "https://github.com/shubham230523/Flint"
+            },
+            {
+                name: "ApplyAI",
+                category: "AI",
+                desc: "Next-gen AI job application automation engine using multimodal LLMs and agentic decision loops.",
+                status: "IN DEV",
+                tech: ["Gemini API", "OpenRouter", "Supabase", "Agentic AI"],
+                link: "https://github.com/shubham230523/ApplyAI"
+            },
+            {
+                name: "TraceFlow",
+                category: "TOOLS",
+                desc: "Real-time KMP network inspection library. Monitors HTTP traffic for Ktor apps with minimal CPU overhead (< 2%).",
+                status: "LIBRARY",
+                tech: ["KMP", "Ktor Plugin", "Kotlin", "Android / iOS"],
+                link: "https://github.com/shubham230523/TraceFlow"
+            },
+            {
+                name: "PhonePilotAI",
+                category: "MOBILE",
+                desc: "Autonomous AI agent platform for Android. Features high-performance Rust core (UniFFI) for battery-optimized persistent workflows.",
+                status: "OPEN SOURCE",
+                tech: ["Kotlin", "Rust Core", "UniFFI", "Android Accessibility"],
+                link: "https://github.com/shubham230523/PhonePilotAI"
+            },
+            {
+                name: "Veya",
+                category: "AI",
+                desc: "Universal AI Skill Engine. Translates natural language goals into structured execution pipelines and modular prompt workflows.",
+                status: "OPEN SOURCE",
+                tech: ["React Native", "Expo", "Supabase", "OpenRouter"],
+                link: "https://github.com/shubham230523/Veya"
+            },
+            {
+                name: "Orbit",
+                category: "AI",
+                desc: "AI Life Operating System. An adaptive planning engine that transforms natural language goals into executable roadmaps.",
+                status: "OPEN SOURCE",
+                tech: ["React Native", "Kotlin", "Ktor", "LangGraph"],
+                link: "https://github.com/shubham230523/Orbit"
+            },
+            {
+                name: "RAGentrix",
+                category: "AI",
+                desc: "Advanced Retrieval-Augmented Generation system. Hybrid inference switching between cloud (Gemini) and on-device (Gemma) models.",
+                status: "OPEN SOURCE",
+                tech: ["KMP", "Gemini API", "RAG", "Vector DB"],
+                link: "https://github.com/shubham230523/RAGentrix"
+            },
+            {
+                name: "TestPilotAI",
+                category: "TOOLS",
+                desc: "AI-powered mobile testing CLI. Natural language test definitions using Vision AI models (Gemini/GPT-4V) for auto-repair loops.",
+                status: "OPEN SOURCE",
+                tech: ["Python", "Appium", "Vision AI", "Automation"],
+                link: "https://github.com/shubham230523/TestPilotAI"
+            },
+            {
+                name: "TravelSphere KMP",
+                category: "CROSS-PLATFORM",
+                desc: "Modern cross-platform exploration app. Features 100% shared UI code using Compose Multiplatform across Mobile, Web, and Desktop.",
+                status: "OPEN SOURCE",
+                tech: ["KMP", "Compose Multiplatform", "Shared UI"],
+                link: "https://github.com/shubham230523/TravelSphereKmp"
+            },
+            {
+                name: "Echo",
+                category: "AI",
+                desc: "Sonorous Audiobook Synthesizer. An agentic KMP platform transforming static PDFs into audiobooks with AI voice narration.",
+                status: "OPEN SOURCE",
+                tech: ["KMP", "Compose Multiplatform", "Ollama", "AI Narration"],
+                link: "https://github.com/shubham230523/Echo"
+            },
+            {
+                name: "Relay",
+                category: "AI",
+                desc: "Intent-Driven Automation Engine. Cross-platform LLM engine translating natural language into self-healing digital workflows.",
+                status: "OPEN SOURCE",
+                tech: ["Flutter", "Node.js", "LangGraph"],
+                link: "https://github.com/shubham230523/Relay"
+            },
+            {
+                name: "Investo",
+                category: "MOBILE",
+                desc: "AI-driven investment advisor built with Flutter. Personalized financial recommendations powered by GenAI and Supabase.",
+                status: "OPEN SOURCE",
+                tech: ["Flutter", "Supabase", "GenAI"],
+                link: "https://github.com/shubham230523/Investo"
+            },
+            {
+                name: "Toto",
+                category: "CROSS-PLATFORM",
+                desc: "Generative Animated Learning Platform. Zero-UI toddler platform transforming stories into animated episodes using Godot 4 & Gemini.",
+                status: "EXPERIMENT",
+                tech: ["Flutter", "FFmpeg", "Godot 4", "Gemini API"],
+                link: "https://github.com/shubham230523/Toto"
+            },
+            {
+                name: "KtorMQTTX",
+                category: "TOOLS",
+                desc: "Lightweight MQTT client integration plugin for Ktor network environments.",
+                status: "UTILITY",
+                tech: ["Ktor", "Kotlin", "MQTT"],
+                link: "https://github.com/shubham230523/KtorMQTTX"
+            },
+            {
+                name: "KrossShield",
+                category: "TOOLS",
+                desc: "Security and cryptographic utility layer for Kotlin Multiplatform applications.",
+                status: "UTILITY",
+                tech: ["KMP", "Kotlin", "Crypto"],
+                link: "https://github.com/shubham230523/KrossShield"
+            },
+            {
+                name: "KrossIO",
+                category: "TOOLS",
+                desc: "Cross-platform file I/O and streaming library for KMP Android and iOS projects.",
+                status: "UTILITY",
+                tech: ["KMP", "File I/O", "Kotlin"],
+                link: "https://github.com/shubham230523/KrossIO"
+            },
+            {
+                name: "CineNexus Android TV",
+                category: "MOBILE",
+                desc: "Leanback-optimized Android TV streaming application built with native Jetpack Compose.",
+                status: "OPEN SOURCE",
+                tech: ["Android TV", "Jetpack Compose", "Kotlin"],
+                link: "https://github.com/shubham230523/CineNexusAndroidTV"
+            },
+            {
+                name: "Shopora",
+                category: "CROSS-PLATFORM",
+                desc: "E-Commerce mobile application showcasing clean architecture and state management.",
+                status: "OPEN SOURCE",
+                tech: ["React Native", "TypeScript", "Redux"],
+                link: "https://github.com/shubham230523/Shopora"
+            },
+            {
+                name: "HealthBridge API",
+                category: "TOOLS",
+                desc: "Backend API bridge for health metrics synchronization and medical data structures.",
+                status: "UTILITY",
+                tech: ["Node.js", "Express", "REST API"],
+                link: "https://github.com/shubham230523/HealthBridgeAPI"
+            }
+        ];
+
+        // System Constellation Nodes Mapping
+        const CONSTELLATION_NODES = [
+            { id: 1, name: "Kindle", cat: "AI", desc: "Software Alchemy & Multi-Agent Engine", tech: ["LangGraph", "Flutter"], link: "https://github.com/shubham230523/kindle" },
+            { id: 2, name: "Memora", cat: "AI", desc: "Long-term RAG memory engine", tech: ["React Native", "Vector DB"], link: "https://github.com/shubham230523/Memora" },
+            { id: 3, name: "Loom", cat: "TOOLS", desc: "Multi-agent PR creation bot", tech: ["LangGraph", "Python"], link: "https://github.com/shubham230523/Loom" },
+            { id: 4, name: "Flint", cat: "CROSS-PLATFORM", desc: "Compose Multiplatform AI OS", tech: ["CMP", "Ktor"], link: "https://github.com/shubham230523/Flint" },
+            { id: 5, name: "ApplyAI", cat: "AI", desc: "Multimodal LLM auto-fill engine", tech: ["Gemini", "OpenRouter"], link: "https://github.com/shubham230523/ApplyAI" },
+            { id: 6, name: "TraceFlow", cat: "TOOLS", desc: "Real-time KMP network inspector", tech: ["KMP", "Ktor"], link: "https://github.com/shubham230523/TraceFlow" },
+            { id: 7, name: "PhonePilotAI", cat: "MOBILE", desc: "Android autonomous AI + Rust core", tech: ["Kotlin", "Rust"], link: "https://github.com/shubham230523/PhonePilotAI" },
+            { id: 8, name: "TravelSphere KMP", cat: "CROSS-PLATFORM", desc: "Shared UI Compose Multiplatform", tech: ["KMP", "CMP"], link: "https://github.com/shubham230523/TravelSphereKmp" }
+        ];
+
+        // DOM Loaded Events
+        document.addEventListener('DOMContentLoaded', () => {
+            initScrollProgress();
+            initMobileDrawer();
+            initHeroMatrixCanvas();
+            initConstellationGrid();
+            initArchiveFilterAndSearch();
         });
 
-        // Skill Bars Animation
-        gsap.utils.toArray(".skill-bar-glow").forEach(bar => {
-            gsap.to(bar, {
-                width: bar.style.width,
-                duration: 1.5,
-                ease: "power4.out",
-                scrollTrigger: {
-                    trigger: bar,
-                    start: "top 90%",
+        // 1. Scroll Progress Bar
+        function initScrollProgress() {
+            const progressBar = document.getElementById('scrollProgress');
+            window.addEventListener('scroll', () => {
+                const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const progress = (window.scrollY / totalHeight) * 100;
+                progressBar.style.width = `${progress}%`;
+            });
+        }
+
+        // 2. Mobile Drawer
+        function initMobileDrawer() {
+            const btn = document.getElementById('mobileMenuBtn');
+            const drawer = document.getElementById('mobileDrawer');
+            if (btn && drawer) {
+                btn.addEventListener('click', () => {
+                    drawer.classList.toggle('hidden');
+                });
+                drawer.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => drawer.classList.add('hidden'));
+                });
+            }
+        }
+
+        // 3. Interactive Hero Kinetic System Matrix Canvas
+        function initHeroMatrixCanvas() {
+            const canvas = document.getElementById('heroMatrixCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+
+            function resizeCanvas() {
+                if (!canvas.parentElement) return;
+                canvas.width = canvas.parentElement.clientWidth;
+                canvas.height = canvas.parentElement.clientHeight;
+            }
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+            if (window.ResizeObserver && canvas.parentElement) {
+                new ResizeObserver(resizeCanvas).observe(canvas.parentElement);
+            }
+
+            // Orbiting Node System Data
+            const centerNode = { label: "AGENTIC CORE", color: "#C8F169" };
+            const satellites = [
+                { angle: 0, speed: 0.008, radius: 0.35, label: "Android Native", color: "#C8F169" },
+                { angle: Math.PI * 0.5, speed: 0.006, radius: 0.35, label: "KMP & CMP", color: "#5B6CFF" },
+                { angle: Math.PI, speed: 0.009, radius: 0.35, label: "Flutter & RN", color: "#C8F169" },
+                { angle: Math.PI * 1.5, speed: 0.007, radius: 0.35, label: "RAG & Vector DB", color: "#FF6B5E" }
+            ];
+
+            let particles = [];
+
+            function spawnParticles(cx, cy, tx, ty, color) {
+                for (let i = 0; i < 8; i++) {
+                    particles.push({
+                        x: cx,
+                        y: cy,
+                        tx: tx,
+                        ty: ty,
+                        progress: Math.random() * 0.2,
+                        speed: 0.012 + Math.random() * 0.015,
+                        color: color
+                    });
                 }
-            });
-            bar.style.width = "0%"; // Reset for animation
-        });
+            }
 
-        // Interactive perspective effect
-        document.querySelectorAll('.perspective-card').forEach(card => {
-            card.addEventListener('mousemove', e => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                const rotateX = (y - centerY) / 20;
-                const rotateY = (centerX - x) / 20;
-
-                card.querySelector('.card-tilt').style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            // Click canvas to trigger multi-node signal bursts
+            canvas.addEventListener('click', () => {
+                const cx = canvas.width / 2;
+                const cy = canvas.height / 2;
+                satellites.forEach(s => {
+                    const sx = cx + Math.cos(s.angle) * (canvas.width * s.radius);
+                    const sy = cy + Math.sin(s.angle) * (canvas.height * s.radius);
+                    spawnParticles(cx, cy, sx, sy, s.color);
+                });
             });
 
-            card.addEventListener('mouseleave', () => {
-                card.querySelector('.card-tilt').style.transform = `rotateX(0deg) rotateY(0deg)`;
+            // Auto spawn pulses periodically
+            setInterval(() => {
+                const cx = canvas.width / 2;
+                const cy = canvas.height / 2;
+                const target = satellites[Math.floor(Math.random() * satellites.length)];
+                const sx = cx + Math.cos(target.angle) * (canvas.width * target.radius);
+                const sy = cy + Math.sin(target.angle) * (canvas.height * target.radius);
+                spawnParticles(cx, cy, sx, sy, target.color);
+            }, 700);
+
+            function render() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                const cx = canvas.width / 2;
+                const cy = canvas.height / 2;
+                const orbitR = canvas.width * 0.35;
+
+                // Draw orbit background ring
+                ctx.beginPath();
+                ctx.arc(cx, cy, orbitR, 0, Math.PI * 2);
+                ctx.strokeStyle = "rgba(243, 240, 232, 0.06)";
+                ctx.lineWidth = 1.5;
+                ctx.stroke();
+
+                // Update & draw satellite nodes
+                satellites.forEach(s => {
+                    s.angle += s.speed;
+                    const sx = cx + Math.cos(s.angle) * orbitR;
+                    const sy = cy + Math.sin(s.angle) * orbitR;
+
+                    // Connection line to center
+                    ctx.beginPath();
+                    ctx.moveTo(cx, cy);
+                    ctx.lineTo(sx, sy);
+                    ctx.strokeStyle = "rgba(243, 240, 232, 0.08)";
+                    ctx.lineWidth = 1;
+                    ctx.stroke();
+
+                    // Satellite Node Circle
+                    ctx.beginPath();
+                    ctx.arc(sx, sy, 8, 0, Math.PI * 2);
+                    ctx.fillStyle = "#131618";
+                    ctx.fill();
+                    ctx.strokeStyle = s.color;
+                    ctx.lineWidth = 2;
+                    ctx.stroke();
+
+                    ctx.beginPath();
+                    ctx.arc(sx, sy, 3, 0, Math.PI * 2);
+                    ctx.fillStyle = s.color;
+                    ctx.fill();
+
+                    // Satellite Label
+                    ctx.font = "9px JetBrains Mono";
+                    ctx.fillStyle = "#F3F0E8";
+                    ctx.textAlign = "center";
+                    ctx.fillText(s.label, sx, sy + 18);
+                });
+
+                // Update & draw particles
+                for (let i = particles.length - 1; i >= 0; i--) {
+                    const p = particles[i];
+                    p.progress += p.speed;
+                    if (p.progress >= 1) {
+                        particles.splice(i, 1);
+                        continue;
+                    }
+                    const px = p.x + (p.tx - p.x) * p.progress;
+                    const py = p.y + (p.ty - p.y) * p.progress;
+
+                    ctx.beginPath();
+                    ctx.arc(px, py, 2.5, 0, Math.PI * 2);
+                    ctx.fillStyle = p.color;
+                    ctx.fill();
+                }
+
+                // Center Node (Agentic Core)
+                ctx.beginPath();
+                ctx.arc(cx, cy, 22, 0, Math.PI * 2);
+                ctx.fillStyle = "rgba(200, 241, 105, 0.12)";
+                ctx.fill();
+                ctx.strokeStyle = "#C8F169";
+                ctx.lineWidth = 2;
+                ctx.stroke();
+
+                ctx.beginPath();
+                ctx.arc(cx, cy, 8, 0, Math.PI * 2);
+                ctx.fillStyle = "#C8F169";
+                ctx.fill();
+
+                ctx.font = "bold 10px Space Grotesk";
+                ctx.fillStyle = "#F3F0E8";
+                ctx.textAlign = "center";
+                ctx.fillText(centerNode.label, cx, cy + 36);
+
+                requestAnimationFrame(render);
+            }
+
+            render();
+        }
+
+        // 4. Constellation System Map Grid
+        function initConstellationGrid() {
+            const grid = document.getElementById('constellationNodeGrid');
+            const inspector = document.getElementById('nodeInspectorCard');
+            const title = document.getElementById('inspectorTitle');
+            const cat = document.getElementById('inspectorCategory');
+            const desc = document.getElementById('inspectorDesc');
+            const tech = document.getElementById('inspectorTech');
+            const link = document.getElementById('inspectorLink');
+
+            if (!grid) return;
+
+            CONSTELLATION_NODES.forEach(node => {
+                const card = document.createElement('div');
+                card.className = "p-4 bg-surface border border-ivory/10 hover:border-lime rounded-sm cursor-pointer transition-all space-y-2 group";
+
+                let catClass = "text-lime";
+                if (node.cat === "TOOLS") catClass = "text-coral";
+                if (node.cat === "CROSS-PLATFORM") catClass = "text-cobalt";
+
+                card.innerHTML = `
+                    <div class="flex items-center justify-between">
+                        <span class="mono text-[10px] ${catClass} uppercase font-bold">${node.cat}</span>
+                        <i class="fas fa-arrow-up-right-from-square text-xs text-ivory-muted group-hover:text-lime transition-colors"></i>
+                    </div>
+                    <div class="font-editorial text-lg font-bold text-ivory group-hover:text-lime transition-colors">${node.name}</div>
+                    <p class="text-xs text-ivory-muted line-clamp-2">${node.desc}</p>
+                `;
+
+                card.addEventListener('click', () => {
+                    inspector.classList.remove('hidden');
+                    title.textContent = node.name;
+                    cat.textContent = node.cat;
+                    desc.textContent = node.desc;
+                    link.href = node.link;
+
+                    tech.innerHTML = '';
+                    node.tech.forEach(t => {
+                        const span = document.createElement('span');
+                        span.className = "tech-pill";
+                        span.textContent = t;
+                        tech.appendChild(span);
+                    });
+
+                    inspector.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                });
+
+                grid.appendChild(card);
             });
-        });
+        }
+
+        // 5. Complete Archive Filtering & Instant Search
+        function initArchiveFilterAndSearch() {
+            const grid = document.getElementById('archiveGrid');
+            const searchInput = document.getElementById('archiveSearch');
+            const filterBtns = document.querySelectorAll('.archive-filter-btn');
+
+            let currentCategory = "ALL";
+            let currentQuery = "";
+
+            function renderArchive() {
+                grid.innerHTML = '';
+
+                const filtered = ALL_PROJECTS.filter(p => {
+                    const matchesCategory = (currentCategory === "ALL") || (p.category === currentCategory);
+                    const q = currentQuery.toLowerCase();
+                    const matchesQuery = !q ||
+                        p.name.toLowerCase().includes(q) ||
+                        p.desc.toLowerCase().includes(q) ||
+                        p.tech.some(t => t.toLowerCase().includes(q));
+
+                    return matchesCategory && matchesQuery;
+                });
+
+                if (filtered.length === 0) {
+                    grid.innerHTML = `
+                        <div class="col-span-full py-12 text-center text-ivory-muted mono text-xs border border-dashed border-ivory/10 rounded-sm">
+                            NO PROJECTS MATCHING YOUR SEARCH FILTER.
+                        </div>
+                    `;
+                    return;
+                }
+
+                filtered.forEach(p => {
+                    const card = document.createElement('div');
+                    card.className = "editorial-card p-6 rounded-sm space-y-4 flex flex-col justify-between";
+
+                    const techTags = p.tech.map(t => `<span class="tech-pill">${t}</span>`).join(' ');
+
+                    card.innerHTML = `
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="mono text-[10px] text-ivory-muted uppercase tracking-wider">${p.category}</span>
+                                <span class="pill-badge text-lime">${p.status}</span>
+                            </div>
+                            <h3 class="font-editorial text-xl font-bold text-ivory">${p.name}</h3>
+                            <p class="text-xs text-ivory-muted leading-relaxed">${p.desc}</p>
+                        </div>
+                        <div class="space-y-4 pt-2">
+                            <div class="flex flex-wrap gap-1.5">${techTags}</div>
+                            <a href="${p.link}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs mono text-lime hover:underline font-bold">
+                                VIEW REPO <i class="fas fa-arrow-right text-[10px]"></i>
+                            </a>
+                        </div>
+                    `;
+
+                    grid.appendChild(card);
+                });
+            }
+
+            // Search input listener
+            if (searchInput) {
+                searchInput.addEventListener('input', (e) => {
+                    currentQuery = e.target.value.trim();
+                    renderArchive();
+                });
+            }
+
+            // Filter buttons listener
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => {
+                        b.classList.remove('bg-lime', 'text-ink', 'font-bold', 'border-lime');
+                        b.classList.add('border-ivory/10', 'text-ivory-muted');
+                    });
+
+                    btn.classList.remove('border-ivory/10', 'text-ivory-muted');
+                    btn.classList.add('bg-lime', 'text-ink', 'font-bold', 'border-lime');
+
+                    currentCategory = btn.getAttribute('data-category');
+                    renderArchive();
+                });
+            });
+
+            // Initial render
+            renderArchive();
+        }
     </script>
 </body>
 </html>
